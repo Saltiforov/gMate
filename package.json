@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "flow-adaptive": "^1.2.0",
+    "isotope-layout": "^3.0.6",
+    "normalize-css": "^2.3.1"
+  }
+}

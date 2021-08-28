@@ -1,0 +1,8 @@
+@media (max-width: 415px) {
+    .container{
+        padding: 0 2.1rem;
+    }
+    .header__logo{
+        margin: 3.9rem 0 6.5rem;
+    }
+}

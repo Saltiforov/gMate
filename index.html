@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="node_modules/normalize-css/normalize.css">
+  <title>Document</title>
+</head>
+<body>
+<header>
+  <div class="header__logo">
+    <div class="container">
+      <img src="images/logo.png" alt="getmatch-logo">
+    </div>
+  </div>
+</header>
+<section class="start">
+  <div class="container">
+    <div class="start__chat">
+      <div class="start__chat-message chat__message">
+        <p class="chat__message-item">/start</p>
+        <p class="chat__message-item">привет! подберем для вас:</p>
+        <h2 class="chat__message-item f-w-800">IT-вакансии, которых нет на открытом рынке</h2>
+        <p class="chat__message-item">получайте офферы или отслеживайте зарплаты 💰 — их видно сразу</p>
+      </div>
+      <div class="pickup-jobs">
+        <img src="images/telegram.svg" alt="telegram-link">
+        <a href="#">подобрать вакансии </a>
+      </div>
+
+      <p class="sub_info">За 30 секунд через телеграм-бота</p>
+    </div>
+  </div>
+</section>
+<section class="offers">
+  <div class="container">
+    <h2 class="offers__title">высокие зарплаты, удалёнка и релокация в Европу и США</h2>
+    <p class="offers__subtitle">
+    вакансии только от проверенных компаний <a href="#">как проверяем → </a></p>
+    <div class="offers__container">
+
+      <ul class="category__list button-group filters-button-group">
+        <li class="category__list-item"><button class="button is-checked"  data-filter="*">Все специальности</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".java-scala">Java/Scala</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".python"> Python</button></li>
+        <li class="category__list-item"><button class="button" data-filter=".c-hash">C#</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".ios">IOS</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".android">Android</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".c-c-plus"> C/C++</button></li>
+        <li class="category__list-item"><button class="button" data-filter=".goland">Goland</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".ruby">Ruby</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".php">PHP</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".frontend">JS/Frontend</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".backend">JS/Backend</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".data-science">Data Science</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".product-manager">Product Management</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".project-management">Project Management</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".system-analyst">System Analyst</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".product-analyst">Product Analyst</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".design">Design & UX</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".dev-ops">DevOps</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".tech-management">Tech Management</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".tech-recruitment">Tech Recruitment</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".qa-manual">QA / Manual</button> </li>
+        <li class="category__list-item"><button class="button" data-filter=".qa-auto"> QA / Auto</button></li>
+      </ul>
+
+        <div class="grid offers__list">
+            <div class="element-item  offers__list-item offers__item  java-scala" data-category="transition">
+                <img src="images/wrike.png" class="offers__item-img" alt="wrike">
+                <div class="offers__item-description">
+                    <h3 class="offers__item-name">Java Разработчик</h3>
+                    <p class="offers__item-company">в Wrike</p>
+                    <p class="offers__item-city">Санкт-Петербург, Remote</p>
+                    <p class="offers__item-price">≈ 220 000 – 280 000 ₽</p>
+                </div>
+            </div>
+          <div class="element-item  offers__list-item offers__item java-scala" data-category="transition">
+            <img src="images/yandex.png" class="offers__item-img" alt="yandex">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик Java</h3>
+              <p class="offers__item-company">в Яндекс</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 180 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item" data-category="transition">
+            <img src="images/mail-ru.png" class="offers__item-img" alt="mail-ru">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик Java</h3>
+              <p class="offers__item-company">в Mail.ru</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">≈ 150 000 – 180 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item java-scala" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик Java</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 150 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item python" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик Python</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 150 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item c-hash" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик C#</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 150 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item ios" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик IOS</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 150 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item android" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt=company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик Android</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 180 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item c-c-plus" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик C/C++</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 180 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item goland" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик Goland</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 180 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item ruby" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик Ruby</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 280 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item php" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик PHP</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 80 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item frontend" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик JS/Frontend</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 180 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item backend" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Разработчик JS/Backend</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 240 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item data-science" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Data Science</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 220 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item product-manager" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Product Management</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 220 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item project-management" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Project Management</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 220 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item system-analyst" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">System Analyst</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 220 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item product-analyst" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Product Analyst</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 220 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item design" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Design & UX</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 280 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item dev-ops" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">DevOps</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 320 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item tech-management" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Tech Management</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 320 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item tech-recruitment" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">Tech Recruitment</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 320 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item qa-manual" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">QA / Manual</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 320 000 ₽</p>
+            </div>
+          </div>
+
+          <div class="element-item  offers__list-item offers__item qa-auto" data-category="transition">
+            <img src="images/avito.png" class="offers__item-img" alt="company-logo">
+            <div class="offers__item-description">
+              <h3 class="offers__item-name">QA / Auto</h3>
+              <p class="offers__item-company">в Avito</p>
+              <p class="offers__item-city">Москва, Remote</p>
+              <p class="offers__item-price">от 320 000 ₽</p>
+            </div>
+          </div>
+
+        </div>
+
+          <div class="more__offers link-button">
+            <img src="images/telegram.svg" alt="telegram-link">
+            <a href="#" class="more__offers-link">посмотреть ещё 16 вакансий</a>
+          </div>
+
+      <div class="liner"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+</section>
+
+
+<script src="js/main.js"></script>
+<script src="node_modules/flow-adaptive/dist/flow-adaptive.min.js"></script>
+<script src="node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
+<script src="js/flow-adaptive.js"></script>
+<script src="js/isotope-layout.js"></script>
+
+</body>
+</html>

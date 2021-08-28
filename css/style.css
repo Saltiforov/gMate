@@ -1,0 +1,259 @@
+body, html, button {
+    margin: 0;
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p, h2, h3, ul {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.f-w-800 {
+    font-weight: 800;
+}
+
+.flex {
+    display: flex !important;
+}
+
+.none {
+    display: none !important;
+}
+
+.link-button {
+    background: #0066FF;
+    box-shadow: 0 4px 6px rgba(36, 93, 240, 0.2);
+    border-radius: 6px;
+    width: 100%;
+}
+
+.container {
+    padding: 0 21px;
+}
+
+.start__chat {
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+    letter-spacing: -0.2px;
+}
+
+.chat__message-item {
+    background: #F2F2F2;
+    border-radius: 12px;
+    margin-bottom: .8rem;
+    padding: 1.1rem 1.6rem;
+    max-width: 31.1rem;
+    box-sizing: border-box;
+}
+
+.chat__message-item:nth-child(1) {
+    background: #E1FFC4;
+    border-radius: 1rem;
+    width: 17rem;
+    display: block;
+    margin-left: auto;
+    position: relative;
+    text-align: start;
+    line-height: 2.2rem;
+    margin-bottom: 2.2rem;
+}
+
+.chat__message-item:nth-child(1):before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 1.6rem;
+    right: -1.5rem;
+    border: 1.5rem solid;
+    z-index: -1;
+    transform: rotate(315deg);
+    border-color: #E1FFC4 transparent transparent #E1FFC4;
+}
+
+.chat__message-item:nth-child(2) {
+    max-width: 26.8rem;
+}
+
+.chat__message-item:nth-child(3) {
+    padding: 2.3rem 1.6rem;
+    font-size: 2.6rem;
+    line-height: 3.2rem;
+    font-weight: 800;
+    color: #000000;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.pickup-jobs {
+    background: #0066FF;
+    border-radius: 8px;
+    padding: 1.7rem 3.75rem 1.7rem;
+    display: flex;
+    align-items: center;
+    max-width: 31.1rem;
+    box-sizing: border-box;
+    margin: 2.8rem 0 2rem;
+}
+
+.pickup-jobs a {
+    color: white;
+    margin-left: 1.3rem;
+}
+
+.sub_info {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: #7E7D8E;
+    margin-left: 2.6rem;
+}
+
+.offers {
+    margin-top: 8rem;
+    margin-bottom: 8rem;
+    letter-spacing: -0.2px;
+}
+
+.offers__title {
+    font-size: 2.2rem;
+    line-height: 3rem;
+    font-weight: 800;
+}
+
+.offers__subtitle {
+    font-size: 1.6rem;
+    line-height: 3rem;
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+
+.offers__subtitle a {
+    color: #0066FF;
+}
+
+.category__list {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    background: linear-gradient(270deg, #FFFFFF 7.14%, rgba(255, 255, 255, 0) 100%);
+}
+
+.category__list::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+.offers__container {
+    position: relative;
+}
+
+.liner {
+    position: absolute;
+    width: 100vw;
+    height: 1px;
+    background: #E6E6E6;
+    left: -2.1rem;
+    top: 3.35rem;
+}
+
+.category__list-item {
+}
+
+
+.category__list-item:nth-child(2n) {
+    padding: 0 2.1rem 0;
+}
+
+.button {
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 0 0 1.5rem;
+    color: #A3A3A3;
+}
+
+.button.is-checked {
+    color: #000;
+    border-bottom: .2rem solid #0066FF;;
+}
+
+.offers__item {
+    /*background: #FFFFFF;*/
+    background: #7E7D8E;
+    box-shadow: 0 .2rem 2rem rgba(0, 0, 0, 0.07);
+    border-radius: 12px;
+    display: flex;
+    align-items: start;
+    padding: 2rem 1.6rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1.2rem;
+}
+
+.offers__list {
+    margin: 2.4rem 0 3.6rem;
+}
+
+.offers__item-description {
+    margin-left: 1.6rem;
+}
+
+.offers__item-name {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    font-weight: 600;
+    margin-bottom: .8rem;
+}
+
+.offers__item-company,
+.offers__item-city {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+}
+
+.offers__item-company {
+    margin-bottom: .4rem;
+    letter-spacing: -0.24px;
+}
+
+.offers__item-price {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    font-weight: bold;
+}
+
+.offers__item-city {
+    margin-bottom: 1.2rem;
+}
+
+.more__offers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.more__offers-link {
+    font-size: 1.7rem;
+    line-height: 2.2rem;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -0.2px;
+    margin-left: 1.3rem;
+    padding: 1.7rem 0 1.7rem;
+    color: #FFFFFF;
+}
