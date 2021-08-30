@@ -623,14 +623,18 @@ a {
     margin-bottom: 3.2rem;
 }
 
-.info__social-item + .info__social-item {
-    margin-left: 1.4rem;
-}
-
 .info__social-item {
     width: 4.4rem;
     height: 4.4rem;
 }
+.info__social a{
+    margin-left: 1.4rem;
+}
+
+.info__social a:first-child{
+    margin-left: 0;
+}
+
 
 .copy {
     font-size: 1.3rem;
