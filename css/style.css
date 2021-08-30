@@ -202,13 +202,14 @@ a {
     right: 0;
     left: 0;
     height: 4em;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 110%);
     pointer-events: none;
 }
 
 .category__list::-webkit-scrollbar {
     width: 0 !important;
     opacity: 0 !important;
+    -ms-overflow-style: none !important;
 }
 
 .offers__container {
@@ -267,6 +268,11 @@ a {
 
 .offers__item-description {
     margin-left: 1.6rem;
+}
+
+.offers__item-img{
+    max-width: 7rem;
+    max-height: 2.8rem;
 }
 
 .offers__item-name {
