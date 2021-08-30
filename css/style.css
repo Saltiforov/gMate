@@ -51,14 +51,14 @@ a {
     margin-bottom: 1.2rem;
 }
 
-.hidden{
+.hidden {
     height: 100%;
     width: 100%;
     position: relative;
     overflow: hidden;
 }
 
-.initial{
+.initial {
     overflow: initial;
     height: 100%;
     width: 100%;
@@ -192,11 +192,23 @@ a {
     align-items: center;
     overflow-x: auto;
     -ms-overflow-style: none;
-    background: linear-gradient(270deg, #FFFFFF 7.14%, rgba(255, 255, 255, 0) 100%);
+}
+.category__list:after{
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    top: -1rem;
+    right: 0;
+    left: 0;
+    height: 4em;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 100%);
+    pointer-events: none;
 }
 
 .category__list::-webkit-scrollbar {
     width: 0 !important;
+    opacity: 0 !important;
 }
 
 .offers__container {
@@ -591,8 +603,10 @@ a {
     margin-bottom: 3.5rem;
 }
 
-.footer__info-item:first-child {
-    color: #29A8FC;
+
+.footer__info-email a{
+    color: #29A8FC !important;
+
 }
 
 .privacy-policy {
@@ -699,7 +713,7 @@ a {
     margin-bottom: 1.2rem;
 }
 
-.bg-cart:last-child{
+.bg-cart:last-child {
     margin-bottom: 0;
 }
 
@@ -849,25 +863,29 @@ a {
     line-height: 3.2rem;
     font-weight: bold;
 }
-.additional-education__title{
+
+.additional-education__title {
     margin-bottom: 1.5em;
 }
-.additional-education__card-title{
+
+.additional-education__card-title {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
 }
-.additional-education__card-description{
+
+.additional-education__card-description {
     font-size: 1.4rem;
     line-height: 2rem;
     font-weight: 600;
 }
 
-.additional-education__card-logo{
+.additional-education__card-logo {
     display: flex;
     justify-content: center;
 }
-.profile-confirm{
+
+.profile-confirm {
     font-size: 1.7rem;
     line-height: 2.2rem;
     font-weight: 600;
@@ -884,11 +902,12 @@ a {
     border: none;
     z-index: 20;
 }
-.profile__additional-education{
+
+.profile__additional-education {
     margin-bottom: 6rem;
 }
 
-.error-message{
+.error-message {
     position: absolute;
     opacity: 0;
     font-family: 'Inter', sans-serif;
@@ -899,20 +918,26 @@ a {
     bottom: 14rem;
     transition: all .3s ease-out;
 }
-.form__privacy-text{
+
+.form__privacy-text {
     transition: all .3s ease-out;
 }
 
-.employer__form.show-error .form__privacy-text{
+.employer__form.show-error .form__privacy-text {
     margin-top: 4rem;
     transition: all .3s ease-out;
 }
-.employer__form.show-error .error-message{
+
+.employer__form.show-error .error-message {
     opacity: 1;
     bottom: 18rem;
     color: #FF0000;
     visibility: initial;
     transition: all .3s ease-out;
 
+}
+
+.footer a {
+    color: white;
 }
 
