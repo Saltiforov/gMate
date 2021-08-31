@@ -24,6 +24,13 @@ flow-adaptive@^1.2.0:
   resolved "https://registry.yarnpkg.com/flow-adaptive/-/flow-adaptive-1.2.0.tgz#5a6a079bbb940b59626a70b1d049930aed23877f"
   integrity sha512-KZ6wlfxUPAxrDLROClXPfB9kYBwxj+puKytAwOehZ3c39ZHeNX1tIQgqH98UyBPRFvuORycxN4d73VDOJaMPZA==
 
+freemail@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/freemail/-/freemail-1.7.0.tgz#c54b8bd11b1580d051909f866c665b6a46886eeb"
+  integrity sha512-XzEdol9AxxwDN5ISi+J560MgQRKTiGOTRFakRQLUQDEjr48hBMzU5Eo7c2U13zzz3IwcaD+54jWHJrg6/wqRNA==
+  dependencies:
+    tldjs "^1.5.2"
+
 get-size@^2.0.0, get-size@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/get-size/-/get-size-2.0.3.tgz#54a1d0256b20ea7ac646516756202769941ad2ef"
@@ -68,3 +75,20 @@ outlayer@^2.1.0:
     ev-emitter "^1.0.0"
     fizzy-ui-utils "^2.0.0"
     get-size "^2.0.2"
+
+punycode@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
+  integrity sha1-wNWmOycYgArY4esPpSachN1BhF4=
+
+requirejs@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.yarnpkg.com/requirejs/-/requirejs-2.3.6.tgz#e5093d9601c2829251258c0b9445d4d19fa9e7c9"
+  integrity sha512-ipEzlWQe6RK3jkzikgCupiTbTvm4S0/CAU5GlgptkN5SO6F3u0UD0K18wy6ErDqiCyP4J4YYe1HuAShvsxePLg==
+
+tldjs@^1.5.2:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/tldjs/-/tldjs-1.8.0.tgz#b9c16bd6de357b55ffcbe7d5be41f6b3ca76e3fa"
+  integrity sha1-ucFr1t41e1X/y+fVvkH2s8p24/o=
+  dependencies:
+    punycode "^1.4.1"

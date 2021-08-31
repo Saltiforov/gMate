@@ -1,5 +1,4 @@
 // external js: isotope.pkgd.js
-console.log('isotop')
 
 // init Isotope
 const iso = new Isotope('.grid', {
@@ -40,7 +39,6 @@ filtersElem.addEventListener('click', function (event) {
         if (filterValue === '*') {
             renderList(elements,0,5)
             iso.layout()
-            // console.log('renderList click', (limit + start))
         } else {
             elements.forEach((el, index) => {
                 el.classList.remove('flex')

@@ -15,7 +15,6 @@
     />
     <link rel="stylesheet" href="node_modules/normalize-css/normalize.css">
     <title>Document</title>
-    <script src="../Users/User/Downloads/utils.ts"></script>
 </head>
 <body>
 <header>
@@ -46,8 +45,23 @@
 <section class="offers">
     <div class="container">
         <h2 class="offers__title">высокие зарплаты, удалёнка и релокация в Европу и США</h2>
-        <p class="offers__subtitle">
-            вакансии только от проверенных компаний <a href="#">как проверяем → </a></p>
+        <div class="offers__subtitle">
+            <p>вакансии только от проверенных компаний <span class="tooltip blue"
+                                                             data-path="check">как проверяем → </span></p>
+        </div>
+        <div class="tooltip-item" data-target="check">
+            <div class="bg-cart">
+                <div class="tooltip-item-body">
+                    <p>
+                        Прежде чем дать доступ к сервису, мы смотрим на продукт, технологии, зарплаты и репутацию
+                        компаний.
+                    </p>
+                    <p> Таким образом, в getmatch попадают лучшие международные стартапы и крупные IT-компании.
+                    </p>
+                </div>
+            </div>
+            <div class="tooltip-item-overlay"></div>
+        </div>
         <div class="offers__container">
 
             <ul class="category__list button-group filters-button-group">
@@ -436,154 +450,129 @@
                         </div>
                         <img src="images/close.svg" class="btn-close" alt="close-icon">
                     </div>
-
                     <div class="modal-body">
+                        <div class="profile__resume">
+                            <img src="images/profile/profile__resume.png" alt="">
+                        </div>
                         <div class="profile__person person profile-container bg-cart">
                             <div class="person__header">
                                 <div class="person__header-img">
                                     <img src="images/profile/person.png" alt="person">
                                 </div>
                                 <div class="person__header-info person__info">
-                                    <p class="person__info-name profile-title">Константин</p>
-                                    <p class="person__info-age">32 года (3.12.1990)</p>
+                                    <p class="person__info-name profile-title">Richard Hendricks</p>
+                                    <p class="person__info-age">28 years old (3.12.1993)</p>
                                 </div>
                             </div>
                             <div class="person__location">
                                 <img src="images/profile/location-icon.png" alt="location-icon">
-                                <p class="person__location-text">Москва, Россия</p>
+                                <p class="person__location-text">Silicon Valley, CA</p>
                             </div>
                             <div class="person__format">
                                 <img src="images/profile/format-icon.png" alt="format-icon">
-                                <p class="person__format-text">Формат работы: Москва, Санкт-Петербург, Remote,
-                                    Relocate</p>
+                                <p class="person__format-text">Relocate</p>
                             </div>
                         </div>
 
                         <div class="profile__facts facts profile-container bg-cart">
-                            <h3 class="facts__title">
-                                Ключевые факты
+                            <h3 class="facts__title m-b-12">
+                                Summary
                             </h3>
+                            <p class="facts__subtitle">I am the CEO of PiedPiper and working on providing free and
+                                decentralized internet.</p>
                             <ul class="facts__list">
-                                <li class="facts__list-item">- 5 years of total web development experience, 4 of them
-                                    with React&Redux, 3 with Node.js & Express.js
+                                <li class="facts__list-item">Launched PiperNet, a decentralized internet for the world
                                 </li>
-                                <li class="facts__list-item"> - Key expertise: React, Typescript, Express.js, Node.js
-                                    and CI/CD.
-                                </li>
-                                <li class="facts__list-item">
-                                    - Experience in backend development (ranging from backend-for-frontend web app to
-                                    full-scale DB managementapp)
+                                <li class="facts__list-item">Created PiedPiperCoin, a cryptocurrency to support the open
+                                    internet
                                 </li>
                             </ul>
                             <div class="facts__skills">
-                                <h3 class="facts__skills-title ">Навыки</h3>
+                                <h3 class="facts__skills-title ">Skills</h3>
                                 <ul class="facts__skills-list skills__list">
-                                    <li class="skills__list-item">Java</li>
+                                    <li class="skills__list-item">C</li>
                                     <li class="skills__list-item">Golang</li>
-                                    <li class="skills__list-item">SQL</li>
-                                    <li class="skills__list-item">Git</li>
-                                    <li class="skills__list-item">Spring Framework</li>
-                                    <li class="skills__list-item">Kubernetes</li>
-                                    <li class="skills__list-item">Apache Maven</li>
-                                    <li class="skills__list-item">RabbitMQ</li>
-                                    <li class="skills__list-item">Docker</li>
+                                    <li class="skills__list-item">Java</li>
+                                    <li class="skills__list-item">TypeScript</li>
+                                    <li class="skills__list-item">React</li>
                                 </ul>
                             </div>
                             <div class="facts__language">
-                                <h3 class="facts__language-title ">Языки</h3>
+                                <h3 class="facts__language-title ">Languages</h3>
                                 <p class="facts__language-item">Английский : <span>C1/C2 — Advanced / Fluent</span></p>
-                                <p class="facts__language-item">Русский : <span>C1/C2 — Advanced / Fluent</span></p>
                             </div>
                         </div>
 
                         <div class="profile__experience experience profile-container bg-cart">
-                            <h3 class="experience__title">Опыт работы</h3>
+                            <h3 class="experience__title">Experience</h3>
                             <div class="experience__card">
                                 <div class="experience__card-logo">
-                                    <img src="images/profile/mail.png" alt="mail-ru-icon">
+                                    <img src="images/profile/company.png" alt="company-icon">
                                 </div>
-                                <p class="experience__card-position"><span class="blue">Mail.ru </span><br>Frontend
-                                    Engineer → Team Lead</p>
-                                <p class="experience__card-date">апрель 2017 – июнь 2019, 2 года 2 месяца</p>
-                                <ul class="skills__list m-b-12">
-                                    <li class="skills__list-item">CSS</li>
-                                    <li class="skills__list-item">Java</li>
-                                    <li class="skills__list-item">Vuex</li>
-                                    <li class="skills__list-item">Webpack</li>
-                                    <li class="skills__list-item">Spring Framework</li>
-                                    <li class="skills__list-item">Nuxt</li>
-                                </ul>
+                                <p class="experience__card-position"><span class="blue">Hendricks Venture Capital</span><br>Founding
+                                    Partner</p>
+                                <p class="experience__card-date">Jan 2020 to Present</p>
+
                                 <div class="experience__card-description">
-                                    Написание документации по проекту в соответствии с ГОСТ (технического задания,
-                                    пояснительной запи... <span>развернуть</span>
+                                    <p class="experience__card-description-subtitle">
+                                        We fund companies trying to change the world
+
+                                    </p>
                                 </div>
+                            </div>
+                            <div class="experience__card">
+                                <div class="experience__card-logo">
+                                    <img src="images/profile/piper.png" alt="piper-company-icon">
+                                </div>
+                                <p class="experience__card-position"><span class="blue">Pied Piper</span> - Frontend
+                                    Engineer</p>
+                                <p class="experience__card-date">Apr 2014 to Dec 2019</p>
+                                <div class="experience__card-description">
+                                    <p class="experience__card-description-subtitle">
+                                        I am the CEO of PiedPiper and working on providing free and decentralized
+                                        internet.
+                                    </p>
+                                    <ul class="experience__list">
+                                        <li class="experience__list-item">Launched PiperNet, a decentralized internet
+                                            for the world
+                                        </li>
+                                        <li class="experience__list-item">Created PiedPiperCoin, a cryptocurrency to
+                                            support the open internet
+                                        </li>
+                                        <li class="experience__list-item">Discovered Middle-Out Compression which
+                                            provides the highest standard for lossless compression
+                                        </li>
+                                    </ul>
+                                </div>
+
+
                             </div>
                             <div class="experience__card">
                                 <div class="experience__card-logo">
                                     <img src="images/profile/company.png" alt="company-icon">
                                 </div>
-                                <p class="experience__card-position">Company - Frontend Engineer</p>
-                                <p class="experience__card-date">апрель 2017 – июнь 2019, 2 года 2 месяца</p>
+                                <p class="experience__card-position"><span class="blue">Aviato</span> - Developer</p>
+                                <p class="experience__card-date">Mar 2014 to Mar 2014</p>
                                 <div class="experience__card-description">
-                                    Написание документации по проекту в соответствии с ГОСТ (технического задания,
-                                    пояснительной запи... <span>развернуть</span>
+                                    <p class="experience__card-description-subtitle">
+                                        I built the aggregation algorithm to track flights
+                                    </p>
                                 </div>
-                            </div>
-                            <div class="experience__card">
-                                <div class="experience__card-logo">
-                                    <img src="images/profile/banki.png" alt="banki-icon">
-                                </div>
-                                <p class="experience__card-position">Banki.ru - Junior Frontend Engineer</p>
-                                <p class="experience__card-date">апрель 2017 – июнь 2019, 2 года 2 месяца</p>
-                                <div class="experience__card-description">
-                                    Написание документации по проекту в соответствии с ГОСТ (технического задания,
-                                    пояснительной запи... <span>развернуть</span>
-                                </div>
-                            </div>
-                            <div class="experience__more">
-                                <img src="images/profile/arrow-bottom.png" alt="arrow-bottom">
-                                <p class="experience__more-text blue">Развернуть еще 3</p>
                             </div>
                         </div>
 
-                        <div class="profile__education education profile-container bg-cart">
-                            <h3 class="education__title">Образование</h3>
+
+                        <div class="profile__education education profile-container bg-cart ">
+                            <h3 class="education__title">Education</h3>
                             <div class="education__card">
-                                <div class="education__card-logo">
-                                    <img src="images/profile/education-icon.png" alt="education-icon">
+                                <div class="education__card-logo m-b-12">
+                                    <img src="images/profile/education.png" alt="additional-education-icon">
                                 </div>
-                                <p class="education__card-title blue">Московский государственный университет имени
-                                    М.В.Ломоносова</p>
+                                <p class="education__card-title blue">Stanford</p>
                                 <p class="education__card-description">
-                                    Архитектура и реставрация (магистр)
+                                    Bachelor's of Science, Computer Science
                                 </p>
-                                <p class="education__card-date">2017 - 2019</p>
-
-                            </div>
-                            <div class="education__card">
-                                <div class="education__card-logo">
-                                    <img src="images/profile/company.png" alt="company-icon">
-                                </div>
-                                <p class="education__card-title blue">Московский Государственный Институт Международных
-                                    Отношений</p>
-                                <p class="education__card-description">
-                                    Архитектура и реставрация (специалист)
-                                </p>
-                                <p class="education__card-date">2014 - 2017</p>
-
-                            </div>
-                        </div>
-
-                        <div class="profile__additional-education additional-education profile-container bg-cart ">
-                            <h3 class="additional-education__title">Доп. образование</h3>
-                            <div class="education__card">
-                                <div class="additional-education__card-logo m-b-12">
-                                    <img src="images/profile/additional-education.png" alt="additional-education-icon">
-                                </div>
-                                <p class="additional-education__card-title blue">GeekBrains</p>
-                                <p class="additional-education__card-description">
-                                    Системная аналитика для бизнеса
-                                </p>
+                                <p class="education__card-date">Mar 2014 to Mar 2014</p>
                             </div>
                         </div>
                         <button class="profile-confirm">Понятно</button>
@@ -672,9 +661,9 @@
         </h2>
         <div class="answer__info question">
             <div class="question__header">
-                <h3 class="question__header-title">
-                    как создаётся профиль?</h3>
-                <a href="#profile" class="tabs-triggers__item">
+                <a href="#profile" class="question__header-title tabs-triggers-text tabs-triggers__item">
+                    как создаётся профиль?</a>
+                <a href="#profile" class="tabs-triggers__item tabs-arrow">
                     <img class="question__header-img" src="images/arrow.svg" alt="arrow">
                 </a>
             </div>
@@ -693,8 +682,10 @@
 
         <div class="answer__info  question">
             <div class="question__header">
-                <h3 class="question__header-title">а что с конфиденциальностью? кто увидит мои данные?</h3>
-                <a href="#privacy" class="tabs-triggers__item">
+                <a href="#privacy" class="question__header-title tabs-triggers-text tabs-triggers__item">а что с
+                    конфиденциальностью? кто
+                    увидит мои данные?</a>
+                <a href="#privacy" class="tabs-triggers__item tabs-arrow">
                     <img class="question__header-img" src="images/arrow.svg" alt="arrow">
                 </a>
             </div>
@@ -712,8 +703,10 @@
 
         <div class="answer__info question">
             <div class="question__header">
-                <h3 class="question__header-title">что значит «проверенные <br> компании»?</h3>
-                <a href="#company" class="tabs-triggers__item">
+                <a href="#company" class="question__header-title tabs-triggers-text tabs-triggers__item">что значит
+                    «проверенные <br>
+                    компании»?</a>
+                <a href="#company" class="tabs-triggers__item tabs-arrow">
                     <img class="question__header-img" src="images/arrow.svg" alt="arrow">
                 </a>
             </div>
@@ -733,8 +726,9 @@
 
         <div class="answer__info question">
             <div class="question__header">
-                <h3 class="question__header-title">найдутся вакансии для джунов?</h3>
-                <a href="#offers" class="tabs-triggers__item">
+                <a href="#offers" class="question__header-title tabs-triggers-text tabs-triggers__item">найдутся
+                    вакансии для джунов?</a>
+                <a href="#offers" class="tabs-triggers__item tabs-arrow">
                     <img class="question__header-img" src="images/arrow.svg" alt="arrow">
                 </a>
             </div>
@@ -749,9 +743,9 @@
 
         <div class="answer__info question">
             <div class="question__header">
-                <h3 class="question__header-title">
-                    сколько офферов можно получить в режиме активного поиска?</h3>
-                <a href="#active-offers" class="tabs-triggers__item">
+                <a href="#active-offers" class="question__header-title tabs-triggers-text tabs-triggers__item">
+                    сколько офферов можно получить в режиме активного поиска?</a>
+                <a href="#active-offers" class="tabs-triggers__item tabs-arrow">
                     <img class="question__header-img" src="images/arrow.svg" alt="arrow">
                 </a>
             </div>
@@ -764,8 +758,9 @@
 
         <div class="answer__info question">
             <div class="question__header">
-                <h3 class="question__header-title">сколько всё это стоит?</h3>
-                <a href="#price" class="tabs-triggers__item">
+                <a href="#price" class="question__header-title tabs-triggers-text tabs-triggers__item">сколько всё это
+                    стоит?</a>
+                <a href="#price" class="tabs-triggers__item tabs-arrow">
                     <img class="question__header-img" src="images/arrow.svg" alt="arrow">
                 </a>
             </div>
@@ -839,9 +834,10 @@
 
 <script src="node_modules/flow-adaptive/dist/flow-adaptive.min.js"></script>
 <script src="node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
+
 <script src="js/flow-adaptive.js"></script>
 <script src="js/isotope-layout.js"></script>
-<script src="js/validation.js"></script>
+<script type="module" src="js/validation.js"></script>
 <script src="plugins/tabs.js"></script>
 <script src="plugins/modal.js"></script>
 <script src="js/main.js"></script>

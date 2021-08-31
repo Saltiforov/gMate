@@ -25,12 +25,23 @@ a {
     cursor: pointer;
 }
 
+input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
 .f-w-800 {
     font-weight: 800;
 }
 
 .blue {
     color: #0066FF;
+}
+
+.disabled {
+    opacity: .5;
+    pointer-events: none;
 }
 
 .title {
@@ -168,6 +179,7 @@ a {
     margin-top: 8rem;
     margin-bottom: 8rem;
     letter-spacing: -0.2px;
+    position: relative;
 }
 
 .offers__title {
@@ -181,6 +193,7 @@ a {
     line-height: 3rem;
     font-weight: 500;
     margin-bottom: 4rem;
+    position: relative;
 }
 
 .offers__subtitle a {
@@ -193,7 +206,8 @@ a {
     overflow-x: auto;
     -ms-overflow-style: none;
 }
-.category__list:after{
+
+.category__list:after {
     content: "";
     text-align: right;
     position: absolute;
@@ -270,7 +284,7 @@ a {
     margin-left: 1.6rem;
 }
 
-.offers__item-img{
+.offers__item-img {
     max-width: 7rem;
     max-height: 2.8rem;
 }
@@ -287,6 +301,17 @@ a {
     font-size: 1.4rem;
     line-height: 1.7rem;
 }
+
+.offers__item-company,
+.offers__item-city,
+.offers__item-price,
+.offers__item-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 25rem;
+}
+
 
 .offers__item-company {
     margin-bottom: .4rem;
@@ -307,6 +332,60 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.tooltip-item {
+    display: none;
+    position: absolute;
+    width: 31rem;
+    max-height: 13rem;
+    z-index: 30;
+    top: 14rem;
+    border-radius: 4px;
+    animation-duration: 0.5s;
+}
+
+.tooltip-item-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.tooltip-active {
+    display: block;
+}
+
+.offers .bg-cart {
+    margin-bottom: 0;
+    border-radius: initial;
+}
+
+.tooltip-item-body {
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+    padding: 1.6rem 1.2rem 1.2rem;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 1px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tooltip-item-body p:first-child {
+    margin-bottom: 1rem;
+}
+
+.tooltip-item-body:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -1.2rem;
+    right: 12rem;
+    border-style: solid;
+    border-width: 0 25px 20px 25px;
+    border-color: transparent transparent white transparent;
 }
 
 .more__offers-link {
@@ -404,7 +483,7 @@ a {
     line-height: 2.4rem;
     font-weight: 600;
     margin-bottom: .8rem;
-    position: relative;
+    color: black;
 }
 
 .question__header {
@@ -426,16 +505,18 @@ a {
 
 .answer__info {
     margin-bottom: 4rem;
+    position: relative;
 }
 
-.tabs-triggers__item {
+.tabs-triggers__item img {
+    transition: .5s ease-out;
     transform: rotate(
             180deg
     );
-    transition: .5s ease-out;
 }
 
-.tabs-triggers__item--active {
+.tabs-triggers__item--active img {
+    /*color: #727272;*/
     transform: rotate(0);
     transition: .5s ease-out;
 }
@@ -610,7 +691,7 @@ a {
 }
 
 
-.footer__info-email a{
+.footer__info-email a {
     color: #29A8FC !important;
 
 }
@@ -627,11 +708,12 @@ a {
     width: 4.4rem;
     height: 4.4rem;
 }
-.info__social a{
+
+.info__social a {
     margin-left: 1.4rem;
 }
 
-.info__social a:first-child{
+.info__social a:first-child {
     margin-left: 0;
 }
 
@@ -641,6 +723,7 @@ a {
     line-height: 2.5rem;
     letter-spacing: -0.24px;
     margin-top: 3.2rem;
+    margin-bottom: 4.8rem;
 }
 
 /*--------------------------PROFILE STYLES--------------------------*/
@@ -653,7 +736,7 @@ a {
     font-size: 1.5rem;
     line-height: 2.2rem;
     letter-spacing: -0.2px;
-    margin-bottom: 13.9em;
+    margin-bottom: 4.1rem;
 }
 
 .profile {
@@ -670,11 +753,37 @@ a {
     overflow: hidden;
 }
 
+.profile__resume {
+    margin-bottom: 6.4rem;
+    position: relative;
+
+}
+
+.profile__resume img {
+    max-width: 354px;
+    max-height: 6.95rem;
+}
+
+.profile__resume:after {
+    content: '';
+    top: 8rem;
+    right: 50%;
+    width: 16px;
+    height: 18px;
+    position: absolute;
+
+    background-image: url("../images/profile/profile-arrow.svg");
+}
+
 .person__header {
     display: flex;
     align-items: center;
     margin-bottom: 2.2rem;
 
+}
+
+.person__header-img img {
+    border-radius: 50%;
 }
 
 .person__info {
@@ -727,11 +836,40 @@ a {
     margin-bottom: 0;
 }
 
+.experience__list,
 .facts__list-item {
+    padding-left: 5px;
+}
+
+.facts__list-item,
+.experience__list-item {
+    font-family: 'Inter', sans-serif;
     font-size: 1.5rem;
     line-height: 2.4rem;
     letter-spacing: -0.24px;
-    margin-bottom: 2rem;
+    list-style-type: none;
+}
+
+.experience__list-item:before,
+.facts__list-item:before {
+    content: "•";
+    margin-right: 5px;
+}
+
+.experience__card-description-subtitle {
+    margin-bottom: 1.2rem;
+}
+
+.facts__subtitle {
+    letter-spacing: -0.24px;
+}
+
+.facts__subtitle,
+.experience__card-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    margin-bottom: 1.2rem;
 }
 
 .skills__list {
@@ -742,8 +880,10 @@ a {
 .skills__list-item {
     font-size: 1.4rem;
     line-height: 1.8rem;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
     height: 28px;
-    padding: 0.5rem 1rem 0.5rem;
+    padding: 0.5rem 1.2rem 0.5rem;
     background: #F2F2F2;
     border-radius: 4px;
     margin-right: 0.8rem;
@@ -774,8 +914,12 @@ a {
 .education__card-logo {
     display: flex;
     justify-content: center;
-    margin-bottom: 1.2rem;
-    margin-top: 2rem;
+}
+
+.experience__card-logo img {
+    max-width: 18rem;
+    max-height: 4rem;
+    margin: 2rem auto 1.2rem;
 }
 
 .experience__card-position {
@@ -785,7 +929,8 @@ a {
     margin-bottom: 0.8rem;
 }
 
-.experience__card-date {
+.experience__card-date,
+.education__card-date {
     font-size: 1.4rem;
     line-height: 1.8rem;
     color: #727272;
@@ -798,16 +943,21 @@ a {
     font-weight: normal;
     padding-bottom: 2rem;
     font-family: 'Inter', sans-serif;
-    border-bottom: 1px solid #F2F2F2;
 }
 
-.experience__card-description:last-child {
+.experience__card {
+    border-bottom: 1px solid #F2F2F2;
+
+}
+
+.experience__card:last-child {
     border-bottom: none;
 }
 
 .experience__card-description span {
     color: #0066FF;
 }
+
 
 .experience__more {
     margin-top: 2.6rem;
@@ -867,32 +1017,39 @@ a {
 }
 
 .education__title,
-.additional-education__title,
+.education__title,
 .experience__title {
     font-size: 2.4rem;
     line-height: 3.2rem;
     font-weight: bold;
 }
 
-.additional-education__title {
-    margin-bottom: 1.5em;
+.education__title {
+    margin-bottom: 2.4rem;
 }
 
-.additional-education__card-title {
+.education__card-title {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
 }
 
-.additional-education__card-description {
+education__card-description {
     font-size: 1.4rem;
     line-height: 2rem;
     font-weight: 600;
 }
 
-.additional-education__card-logo {
+.education__card-logo {
     display: flex;
     justify-content: center;
+    margin: 0 auto 1.2rem;
+
+}
+
+.education__card-logo img {
+    max-width: 18rem;
+    max-height: 4.8rem;
 }
 
 .profile-confirm {
@@ -913,8 +1070,8 @@ a {
     z-index: 20;
 }
 
-.profile__additional-education {
-    margin-bottom: 6rem;
+.profile__education {
+    margin-bottom: 3rem;
 }
 
 .error-message {
