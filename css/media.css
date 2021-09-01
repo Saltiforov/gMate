@@ -1,8 +1,8 @@
 @media (min-width: 1000px) {
     .container {
-        padding: 0 2.1rem;
         max-width: 1170px;
         margin: 0 auto;
+        padding: 0;
     }
 
     .start__chat {
@@ -154,8 +154,8 @@
         margin: 0 auto 20rem;
     }
 
-    .link-button:hover{
-        background-color:  #3988FF;
+    .link-button:hover {
+        background-color: #3988FF;
         transition: all .3s ease-out;
 
     }
@@ -209,105 +209,175 @@
         text-align: center;
         margin-bottom: 4.8rem;
     }
-    .employer-container{
+
+    .employer-container {
         max-width: 57rem;
         margin: 0 auto;
     }
-    .employer__form{
+
+    .employer__form {
         padding-bottom: 10rem;
     }
-    .footer__info{
+
+    .footer__info {
         display: flex;
     }
-    .social-and-privacy{
+
+    .social-and-privacy {
         margin-left: 13.5em;
     }
-    .info__social{
+
+    .info__social {
         margin-bottom: 11rem;
     }
-    .footer{
+
+    .footer {
         padding: 10rem 0;
         background-image: url("../images/footer-bg-pc.png");
         background-position: 95% 35%;
     }
-    .footer__logo{
+
+    .footer__logo {
         margin-bottom: 6rem;
     }
-    .footer__info-item{
+
+    .footer__info-item {
         margin-bottom: 2rem;
     }
-    .privacy-policy{
+
+    .privacy-policy {
         margin-bottom: 2rem;
         text-decoration: initial;
     }
-    .privacy-policy a{
+
+    .privacy-policy a {
         color: #30B4FF
 
     }
-    .privacy-policy span{
+
+    .privacy-policy span {
         color: white;
     }
-    .info__img{
+
+    .info__img {
         margin: 6rem 0 12rem;
     }
-    .info__img:last-child{
+
+    .info__img:last-child {
         margin: 6rem 0 10rem;
     }
-    .tooltip:hover{
+
+    .tooltip:hover {
         cursor: pointer;
         text-decoration: underline;
-        text-decoration-color:#0066FF;
+        text-decoration-color: #0066FF;
     }
-    .liner{
+
+    .liner {
         display: none;
     }
-    .category__list{
-        display: block;
-        margin-left: auto;
-        overflow-x:initial;
+
+    .category__list {
+        display: flex;
+        overflow-x: initial;
+        margin-left: 3.3rem;
+        width: 28.8rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
     }
-    .filters{
+
+    .filters {
         display: flex;
         flex-direction: row-reverse;
     }
-    .offers__list{
+
+    .offers__list {
         width: 87rem;
     }
-    .offers__item{
+
+    .offers__item {
         position: initial !important;
         padding: 3.6rem;
-        background-color: #A3A3A3;
     }
-    .offers__item-description{
+
+    .offers__item-description {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
     }
-    .overflow-block-info{
+
+    .overflow-block-info {
         display: flex;
         align-items: center;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
     }
 
-    .overflow-block{
-        max-width: 41rem;
+    .overflow-block {
+        max-width: 40rem;
     }
-    .offers__item-name{
+
+    .offers__item-name {
         margin-right: .4rem;
     }
-    .offers__item-price{
+
+    .offers__item-price {
         align-self: flex-start;
     }
-    .offers__item-city{
+
+    .offers__item-city {
         background-color: #F2F2F2;
+        width: fit-content;
+        padding: .8rem 1.2rem;
+        border-radius: 6px;
+        text-align: center;
+        line-height: 1.8rem;
+        margin: 0.8rem 0.8rem 0 0;
+
     }
+
     .offers__item-company, .offers__item-city, .offers__item-price, .offers__item-name {
         max-width: none;
         white-space: normal;
         text-overflow: clip;
         overflow: visible;
+    }
+
+    .offers__item-company, .offers__item-price, .offers__item-name {
         margin-bottom: 0.4rem;
+
+    }
+
+    .offers__item-img {
+        max-height: 4.8rem;
+        max-width: 15rem;
+        margin-top: 0.5rem;
+    }
+
+    .overflow-block-subinfo {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .category__list:after{
+        display: none;
+    }
+    .button.is-checked{
+        border-bottom: none;
+    }
+    .category__list-item{
+        border: 1px solid #DFDFE7;
+        box-sizing: border-box;
+        border-radius: 6px;
+        margin: 0.8rem 0.8rem 0 0;
+    }
+    .category__list-item button{
+        color: black;
+        text-align: center;
+        padding: 1.2rem 2rem;
+    }
+    .category__list-item:nth-child(2n){
+        padding: inherit;
     }
 
 }
