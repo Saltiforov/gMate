@@ -77,7 +77,8 @@
         );
         border-color: #E1FFC4 transparent transparent #E1FFC4;
     }
-    .offers__title{
+
+    .offers__title {
         font-size: 3.6rem;
         line-height: 4.8rem;
         font-weight: 800;
@@ -85,7 +86,8 @@
         margin: 0 auto 3.6rem;
         text-align: center;
     }
-    .offers__subtitle{
+
+    .offers__subtitle {
         max-width: 46rem;
         font-size: 2rem;
         line-height: 3.6rem;
@@ -94,7 +96,6 @@
     }
 
     /*//todo*/
-
     /*.filters{*/
     /*    display: flex;*/
     /*    flex-direction: row-reverse;*/
@@ -104,46 +105,209 @@
     /*    overflow-x: initial;*/
     /*    display: block;*/
     /*}*/
-
-    .service__title{
+    .service__title {
         font-size: 3.6rem;
         line-height: 4.8rem;
         font-weight: 800;
         margin-bottom: 6rem;
     }
-    .service__info-item{
+
+    .service__info-item {
         width: 67rem;
         margin-bottom: 2rem;
         padding: 3.6rem;
     }
+
     .service__info-item p {
         font-size: 2rem;
         line-height: 3rem;
         font-weight: 500;
     }
-    .service__info-item:nth-child(2n){
+
+    .service__info-item:nth-child(2n) {
         margin-left: auto;
     }
-    .about__title{
+
+    .about__title {
         font-size: 3.6rem !important;
         line-height: 4.8rem !important;
     }
-    .about__subtitle{
+
+    .about__subtitle {
         font-size: 2.4rem;
         line-height: 4rem;
         max-width: 77rem;
         letter-spacing: -0.2px;
     }
-    .info__subtitle{
+
+    .info__subtitle {
         display: none;
     }
-    .info__title{
+
+    .info__title {
         font-size: 2.8rem;
         line-height: 3.4rem;
     }
+
     .link-button {
         max-width: 37rem;
         margin: 0 auto 20rem;
+    }
+
+    .link-button:hover{
+        background-color:  #3988FF;
+        transition: all .3s ease-out;
+
+    }
+
+    .answer__title {
+        font-size: 3.6rem;
+        line-height: 4.8rem;
+    }
+
+    .answer__title br,
+    .question__header-title br {
+        display: none;
+    }
+
+    .question__header {
+        justify-content: initial;
+        margin-bottom: 2.8rem;
+    }
+
+    .tabs-arrow {
+        margin-bottom: .8rem;
+        margin-left: 2rem;
+    }
+
+    .question__header-title {
+        font-size: 2.4rem;
+        line-height: 4rem;
+        letter-spacing: -0.2px;
+    }
+
+    .question__info-item {
+        font-size: 1.7rem;
+        line-height: 2.5rem;
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+    .answer__info:last-child {
+        margin-bottom: 10rem;
+    }
+
+    .employer__title {
+        text-align: center;
+        font-size: 3.6rem;
+        line-height: 4.8rem;
+    }
+
+    .employer__subtitle {
+        font-size: 2rem;
+        line-height: 3rem;
+        letter-spacing: -0.2px;
+        text-align: center;
+        margin-bottom: 4.8rem;
+    }
+    .employer-container{
+        max-width: 57rem;
+        margin: 0 auto;
+    }
+    .employer__form{
+        padding-bottom: 10rem;
+    }
+    .footer__info{
+        display: flex;
+    }
+    .social-and-privacy{
+        margin-left: 13.5em;
+    }
+    .info__social{
+        margin-bottom: 11rem;
+    }
+    .footer{
+        padding: 10rem 0;
+        background-image: url("../images/footer-bg-pc.png");
+        background-position: 95% 35%;
+    }
+    .footer__logo{
+        margin-bottom: 6rem;
+    }
+    .footer__info-item{
+        margin-bottom: 2rem;
+    }
+    .privacy-policy{
+        margin-bottom: 2rem;
+        text-decoration: initial;
+    }
+    .privacy-policy a{
+        color: #30B4FF
+
+    }
+    .privacy-policy span{
+        color: white;
+    }
+    .info__img{
+        margin: 6rem 0 12rem;
+    }
+    .info__img:last-child{
+        margin: 6rem 0 10rem;
+    }
+    .tooltip:hover{
+        cursor: pointer;
+        text-decoration: underline;
+        text-decoration-color:#0066FF;
+    }
+    .liner{
+        display: none;
+    }
+    .category__list{
+        display: block;
+        margin-left: auto;
+        overflow-x:initial;
+    }
+    .filters{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .offers__list{
+        width: 87rem;
+    }
+    .offers__item{
+        position: initial !important;
+        padding: 3.6rem;
+        background-color: #A3A3A3;
+    }
+    .offers__item-description{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .overflow-block-info{
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .overflow-block{
+        max-width: 41rem;
+    }
+    .offers__item-name{
+        margin-right: .4rem;
+    }
+    .offers__item-price{
+        align-self: flex-start;
+    }
+    .offers__item-city{
+        background-color: #F2F2F2;
+    }
+    .offers__item-company, .offers__item-city, .offers__item-price, .offers__item-name {
+        max-width: none;
+        white-space: normal;
+        text-overflow: clip;
+        overflow: visible;
+        margin-bottom: 0.4rem;
     }
 
 }
@@ -156,7 +320,8 @@
     .header__logo {
         margin: 3.9rem 0 6.5rem;
     }
-    .mobile-hide{
+
+    .mobile-hide {
         display: none;
     }
 }

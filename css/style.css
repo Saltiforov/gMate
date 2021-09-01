@@ -450,17 +450,6 @@ input {
     margin-bottom: 2rem;
 }
 
-.info__img {
-    width: 100%;
-    background: #C4C4C4;
-    height: 15rem;
-    margin-bottom: 5.2rem;
-}
-
-.info__img:last-child {
-    margin-top: 4rem;
-}
-
 .about__subtitle {
     font-size: 1.6rem;
     line-height: 2.5rem;
