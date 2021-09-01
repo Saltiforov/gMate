@@ -17,8 +17,8 @@ name.addEventListener('input', (e) => {
 })
 
 email.addEventListener('input', (e) => {
-    console.log('emails.includes(emailValue)', emails.includes(e.currentTarget.value))
-    if (emails.includes(e.currentTarget.value)) {
+    let domain = e.currentTarget.value.slice((e.currentTarget.value.indexOf("@") + 1), e.currentTarget.value.length)
+    if (emails.includes(String(domain).toLowerCase())) {
         errorMessage.classList.add('show-error')
     } else {
 
