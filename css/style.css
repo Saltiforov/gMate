@@ -224,6 +224,7 @@ input {
     width: 0 !important;
     opacity: 0 !important;
     -ms-overflow-style: none !important;
+    display: none !important;
 }
 
 .offers__container {
@@ -465,6 +466,10 @@ input {
     line-height: 2.5rem;
     font-weight: 500;
     margin-bottom: 6.8rem;
+}
+
+.about__subtitle br {
+    display: initial;
 }
 
 .about__link {
