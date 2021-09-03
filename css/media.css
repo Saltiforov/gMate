@@ -1,7 +1,8 @@
 @media (min-width: 651px) {
-    a{
+    a {
         cursor: pointer;
     }
+
     .container {
         max-width: 1170px;
         box-sizing: border-box;
@@ -9,15 +10,16 @@
         padding: 0 1.5rem;
     }
 
-    .header{
+    .header {
         position: fixed;
-        background-color: rgba(255,254,255,.5);
+        background-color: rgba(255, 254, 255, .5);
+        backdrop-filter: blur(2px);
         width: 100%;
         top: 0;
         z-index: 1000;
     }
 
-    .transition{
+    .transition {
         transition: all .3s ease-out;
     }
 
@@ -28,13 +30,13 @@
 
 
     .active:hover,
-    .active a:hover{
+    .active a:hover {
         cursor: pointer;
         text-decoration: underline;
         text-decoration-color: #0066FF;
     }
 
-    .active-footer:hover{
+    .active-footer:hover {
         cursor: pointer;
         text-decoration: underline;
     }
@@ -109,7 +111,13 @@
         margin: 3.7rem auto 2.4rem;
         max-width: 42.9rem;
         border-radius: 100px;
-        padding: 2.3rem 9rem;
+        padding: 2.3rem 8rem;
+        outline: none;
+    }
+
+    .pickup-jobs span {
+        color: white;
+        margin-left: 1.3rem;
     }
 
     .sub_info {
@@ -294,6 +302,59 @@
         margin-bottom: 11rem;
     }
 
+    .footer__info-social {
+        display: flex;
+    }
+
+    .item-habr,
+    .item-linkedIn,
+    .item-facebook,
+    .item-twitter,
+    .item-youtube,
+    .item-telegram {
+        width: 44px;
+        height: 44px;
+        background-color: white;
+    }
+
+    .item-habr:hover,
+    .item-linkedIn:hover,
+    .item-facebook:hover,
+    .item-twitter:hover,
+    .item-youtube:hover,
+    .item-telegram:hover {
+        background-color: #30B4FF;
+    }
+
+    .item-habr {
+        -webkit-mask: url('../images/footer-social/habr.svg') no-repeat center;
+    }
+
+    .item-linkedIn {
+        -webkit-mask: url('../images/footer-social/linkedin.svg') no-repeat center;
+
+    }
+
+    .item-facebook {
+        -webkit-mask: url('../images/footer-social/facebook.svg') no-repeat center;
+
+    }
+
+    .item-twitter {
+        -webkit-mask: url('../images/footer-social/twitter.svg') no-repeat center;
+
+    }
+
+    .item-youtube {
+        -webkit-mask: url('../images/footer-social/youtube.svg ') no-repeat center;
+
+    }
+
+    .item-telegram {
+        -webkit-mask: url('../images/footer-social/telegram.svg') no-repeat center;
+
+    }
+
     .footer {
         padding: 10rem 0;
         background-image: url("../images/footer-bg-pc.png");
@@ -378,7 +439,7 @@
     }
 
     .overflow-block {
-        max-width: 40rem;
+        max-width: 39rem;
     }
 
     .offers__item-name {
@@ -436,6 +497,15 @@
         border: none;
     }
 
+    .button span {
+        color: #666666;
+    }
+
+    .button.is-checked span {
+        color: #F2F2F2;
+
+    }
+
     .category__list-item > .is-checked {
         border: none;
     }
@@ -445,12 +515,28 @@
         box-sizing: border-box;
         border-radius: 6px;
         margin: 0.8rem 0.8rem 0 0;
+
     }
 
     .category__list-item button {
         color: black;
         text-align: center;
         padding: 1.2rem 2rem;
+        max-width: 26rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        transition: all .3s ease-out;
+    }
+
+    .category__list-item button:hover {
+        transition: all .3s ease-out;
+        background: #F0EFF2;
+    }
+
+    .category__list-item button.is-checked:hover {
+        transition: all .3s ease-out;
+        background: #0066FF;
     }
 
     .category__list-item:nth-child(2n) {
@@ -530,6 +616,11 @@
         font-size: 1.5rem;
         line-height: 2.4rem;
         padding-bottom: 0;
+    }
+
+    .modal-body .modal__body-item {
+        font-weight: 400;
+
     }
 
     .modal__body-name,
@@ -619,10 +710,12 @@
         letter-spacing: -0.2px;
         margin-top: 2.8rem;
     }
-    .person__header{
+
+    .person__header {
         position: relative;
     }
-    .pdf-download{
+
+    .pdf-download {
         position: absolute;
         font-size: 1.4rem;
         line-height: 1.8rem;
@@ -630,7 +723,8 @@
         color: #0066FF;
         right: 0;
     }
-    .pdf-download:after{
+
+    .pdf-download:after {
         content: '';
         top: 0;
         right: 10.5rem;
@@ -638,6 +732,61 @@
         height: 16px;
         position: absolute;
         background-image: url(../images/profile/download.svg);
+    }
+
+    .employer__form.show-error .error-message {
+        bottom: 24rem;
+    }
+    .more__offers-img{
+        max-height: 18.8rem;
+    }
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 31.4rem;
+        height: 11.4rem;
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+        background-color: white;
+        color: black;
+        text-align: start;
+        padding: 1.2rem;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 4rem;
+        top: 5rem;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        box-shadow: 0px 1px 24px rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+    }
+    .tooltip .tooltiptext span{
+        padding-top: 2rem;
+        display: block;
+    }
+
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: -2rem;
+        left: 15rem;
+        transform: rotate(
+                180deg
+        );
+        border-width: 10px;
+        border-style: solid;
+        border-color: white transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
     }
 }
 

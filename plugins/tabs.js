@@ -16,14 +16,14 @@ document.querySelectorAll('.tabs-triggers__item').forEach((item) => {
                     btn.classList.remove('tabs-triggers__item--active')
                 }
             })
-            document.getElementById(id).classList.remove('animate__animated', 'animate__fadeInLeft')
+            document.getElementById(id).classList.remove('animate__animated', 'animate__fadeInDown')
 
             document.getElementById(id).classList.remove('tabs-content__item--active')
 
 
         } else {
 
-            document.getElementById(id).classList.add('animate__animated', 'animate__fadeInLeft')
+            document.getElementById(id).classList.add('animate__animated', 'animate__fadeInDown')
 
             arrowBtns.forEach((btn) => {
                 if (btn.getAttribute('href').replace('#', '')

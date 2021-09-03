@@ -163,7 +163,7 @@ input {
     margin: 2.8rem 0 2rem;
 }
 
-.pickup-jobs a {
+.pickup-jobs span {
     color: white;
     margin-left: 1.3rem;
 }
@@ -713,7 +713,6 @@ input {
     line-height: 2.5rem;
     letter-spacing: -0.24px;
     margin-top: 3.2rem;
-    margin-bottom: 4.8rem;
 }
 
 
@@ -752,7 +751,57 @@ input {
     position: absolute;
     background-image: url(../images/profile/profile-arrow.svg);
 }
+.item-habr,
+.item-linkedIn,
+.item-facebook,
+.item-twitter,
+.item-youtube,
+.item-telegram {
+    width: 44px;
+    height: 44px;
+    background-color: white;
+}
 
+.item-habr:hover,
+.item-linkedIn:hover,
+.item-facebook:hover,
+.item-twitter:hover,
+.item-youtube:hover,
+.item-telegram:hover {
+    background-color: #30B4FF;
+}
+
+.item-habr {
+    -webkit-mask: url('../images/footer-social/habr.svg') no-repeat center;
+}
+
+.item-linkedIn {
+    -webkit-mask: url('../images/footer-social/linkedin.svg') no-repeat center;
+
+}
+
+.item-facebook {
+    -webkit-mask: url('../images/footer-social/facebook.svg') no-repeat center;
+
+}
+
+.item-twitter {
+    -webkit-mask: url('../images/footer-social/twitter.svg') no-repeat center;
+
+}
+
+.item-youtube {
+    -webkit-mask: url('../images/footer-social/youtube.svg ') no-repeat center;
+
+}
+
+.item-telegram {
+    -webkit-mask: url('../images/footer-social/telegram.svg') no-repeat center;
+
+}
+.footer__info-social {
+    display: flex;
+}
 
 /*--------------------------PROFILE STYLES--------------------------*/
 

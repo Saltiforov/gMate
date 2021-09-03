@@ -52,6 +52,7 @@ filtersElem.addEventListener('click', function (event) {
 
 // change is-checked class on buttons
 const buttonGroups = document.querySelectorAll('.button-group');
+// const filters = document.querySelectorAll('.filter-item')
 const list = document.querySelectorAll('.category__list-item')
 
 buttonGroups.forEach((el) => {

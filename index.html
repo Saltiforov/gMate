@@ -50,10 +50,10 @@
                 <p class="chat__message-item desktop mobile-hide">да! отслеживайте зарплаты 💰 — их видно сразу</p>
 
             </div>
-            <div class="pickup-jobs transition">
+            <a class="pickup-jobs transition" href="#">
                 <img src="images/telegram.svg" alt="telegram-link">
-                <a href="#">подобрать вакансии </a>
-            </div>
+                <span>подобрать вакансии </span>
+            </a>
 
             <p class="sub_info">За 30 секунд через телеграм-бота</p>
         </div>
@@ -62,11 +62,14 @@
 <section class="offers">
     <div class="container">
         <h2 class="offers__title">высокие зарплаты, удалёнка и релокация в Европу и США</h2>
-        <div class="offers__subtitle">
-            <p>вакансии только от проверенных компаний <span class="tooltip blue"
-                                                             data-path="check">как проверяем → </span></p>
+        <div class="offers__subtitle desktop-hide">
+            <p>вакансии только от проверенных компаний <span
+                    class="tooltip blue" data-path="check">
+                как проверяем →
+            </span>
+            </p>
         </div>
-        <div class="tooltip-item" data-target="check">
+        <div class="tooltip-item desktop-hide" data-target="check">
             <div class="bg-cart">
                 <div class="tooltip-item-body">
                     <p>
@@ -79,78 +82,90 @@
             </div>
             <div class="tooltip-item-overlay"></div>
         </div>
+        <div class="offers__subtitle mobile-hide">
+            <div class="tooltip blue">
+                как проверяем →
+                <p class="tooltiptext">
+                Прежде чем дать доступ к сервису, мы смотрим на продукт, технологии, зарплаты и репутацию
+                компаний.
+                    <span>Таким образом, в getmatch попадают лучшие международные стартапы и крупные IT-компании.
+</span>
+            </p>
+            </div>
+        </div>
+
         <div class="offers__container">
 
             <div class="filters">
                 <ul class="category__list button-group filters-button-group">
-                    <li class="category__list-item is-checked" data-filter="*">
-                        <button class="button is-checked" data-filter="*">Все специальности</button>
+                    <li class="category__list-item  is-checked" data-filter="*">
+                        <button class="button filter-item is-checked" data-filter="*">Все специальности <span>121</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".java-scala">
-                        <button class="button" data-filter=".java-scala">Java/Scala</button>
+                    <li class="category__list-item " data-filter=".java-scala">
+                        <button class="button filter-item" data-filter=".java-scala">Java/Scala <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".python">
-                        <button class="button" data-filter=".python"> Python</button>
+                    <li class="category__list-item " data-filter=".python">
+                        <button class="button filter-item" data-filter=".python"> Python <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".c-hash">
-                        <button class="button" data-filter=".c-hash">C#</button>
+                    <li class="category__list-item " data-filter=".c-hash">
+                        <button class="button filter-item" data-filter=".c-hash">C# <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".ios">
-                        <button class="button" data-filter=".ios">IOS</button>
+                    <li class="category__list-item " data-filter=".ios">
+                        <button class="button filter-item" data-filter=".ios">IOS <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".android">
-                        <button class="button" data-filter=".android">Android</button>
+                    <li class="category__list-item " data-filter=".android">
+                        <button class="button filter-item" data-filter=".android">Android <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".c-c-plus">
-                        <button class="button" data-filter=".c-c-plus"> C/C++</button>
+                    <li class="category__list-item " data-filter=".c-c-plus">
+                        <button class="button filter-item" data-filter=".c-c-plus"> C/C++ <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".goland">
-                        <button class="button" data-filter=".goland">Goland</button>
+                    <li class="category__list-item " data-filter=".goland">
+                        <button class="button filter-item" data-filter=".goland">Goland <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".ruby">
-                        <button class="button" data-filter=".ruby">Ruby</button>
+                    <li class="category__list-item " data-filter=".ruby">
+                        <button class="button filter-item" data-filter=".ruby">Ruby <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".php">
-                        <button class="button" data-filter=".php">PHP</button>
+                    <li class="category__list-item " data-filter=".php">
+                        <button class="button filter-item" data-filter=".php">PHP <span>23</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".frontend">
-                        <button class="button" data-filter=".frontend">JS/Frontend</button>
+                    <li class="category__list-item " data-filter=".frontend">
+                        <button class="button filter-item" data-filter=".frontend">JS/Frontend <span>22</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".backend">
-                        <button class="button" data-filter=".backend">JS/Backend</button>
+                    <li class="category__list-item " data-filter=".backend">
+                        <button class="button filter-item" data-filter=".backend">JS/Backend <span>11</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".data-science">
-                        <button class="button" data-filter=".data-science">Data Science</button>
+                    <li class="category__list-item " data-filter=".data-science">
+                        <button class="button filter-item" data-filter=".data-science">Data Science <span>23</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".product-manager">
-                        <button class="button" data-filter=".product-manager">Product Management</button>
+                    <li class="category__list-item " data-filter=".product-manager">
+                        <button class="button filter-item" data-filter=".product-manager">Product Management <span>23</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".project-management">
-                        <button class="button" data-filter=".project-management">Project Management</button>
+                    <li class="category__list-item " data-filter=".project-management">
+                        <button class="button filter-item" data-filter=".project-management">Project Management <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".system-analyst">
-                        <button class="button" data-filter=".system-analyst">System Analyst</button>
+                    <li class="category__list-item " data-filter=".system-analyst">
+                        <button class="button filter-item" data-filter=".system-analyst">System Analyst <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".product-analyst">
-                        <button class="button" data-filter=".product-analyst">Product Analyst</button>
+                    <li class="category__list-item " data-filter=".product-analyst">
+                        <button class="button filter-item" data-filter=".product-analyst">Product Analyst <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".design">
-                        <button class="button" data-filter=".design">Design & UX</button>
+                    <li class="category__list-item " data-filter=".design">
+                        <button class="button filter-item" data-filter=".design">Design & UX <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".dev-ops">
-                        <button class="button" data-filter=".dev-ops">DevOps</button>
+                    <li class="category__list-item " data-filter=".dev-ops">
+                        <button class="button filter-item" data-filter=".dev-ops">DevOps <span>5</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".tech-management">
-                        <button class="button" data-filter=".tech-management">Tech Management</button>
+                    <li class="category__list-item " data-filter=".tech-management">
+                        <button class="button filter-item" data-filter=".tech-management">Tech Management <span>1</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".tech-recruitment">
-                        <button class="button" data-filter=".tech-recruitment">Tech Recruitment</button>
+                    <li class="category__list-item " data-filter=".tech-recruitment">
+                        <button class="button filter-item" data-filter=".tech-recruitment">Tech Recruitment <span>2</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".qa-manual">
-                        <button class="button" data-filter=".qa-manual">QA / Manual</button>
+                    <li class="category__list-item " data-filter=".qa-manual">
+                        <button class="button filter-item" data-filter=".qa-manual">QA / Manual <span>24</span></button>
                     </li>
-                    <li class="category__list-item" data-filter=".qa-auto">
-                        <button class="button" data-filter=".qa-auto"> QA / Auto</button>
+                    <li class="category__list-item " data-filter=".qa-auto">
+                        <button class="button filter-item" data-filter=".qa-auto"> QA / Auto <span>12</span></button>
                     </li>
                 </ul>
 
@@ -642,7 +657,7 @@
 
             <div class="more__offers link-button">
                 <img src="images/telegram.svg" alt="telegram-link">
-                <a href="#" class="more__offers-link link profile-btn" data-path="profile">посмотреть ещё 16
+                <a href="#" class="more__offers-link link">посмотреть ещё 16
                     вакансий</a>
             </div>
 
@@ -655,16 +670,17 @@
         <div class="modal-overlay">
             <div class="modal-dialog">
                 <div class="modal-content offers__content">
-                        <div class="modal-header">
-                            <div class="modal-title">
-                                <img src="images/mail-ru.png" alt="company-logo" class="modal-title-logo">
-                            </div>
-                            <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
+                    <div class="modal-header">
+                        <div class="modal-title">
+                            <img src="images/mail-ru.png" alt="company-logo" class="modal-title-logo">
                         </div>
+                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
+                    </div>
                     <div class="modal-content-connecting">
 
                         <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Java Developer <span>[Remote] @</span>Mail.ru</p>
+                            <p class="modal__body-item modal__body-name">Java Developer <span>[Remote] @</span>Mail.ru
+                            </p>
                             <p class="modal__body-item modal__body-price">220,000 — 250,000 ₽/мес на руки</p>
                             <p class="modal__body-item modal__body-location">
                                 Локация<span>: Москва (м. Савёловская) или полная удаленка — на выбор.</span>
@@ -684,9 +700,9 @@
                         </div>
                         <div class="modal-footer">
                             <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <div class="modal-footer-link link-button ">
+                            <a class="modal-footer-link link-button " href="#">
                                 <img src="images/telegram.svg" alt="telegram-link">
-                                <a href="#" class="link">Добавить телеграм-бота</a></div>
+                                <span class="link">Добавить телеграм-бота</span></a>
                         </div>
 
                     </div>
@@ -716,7 +732,7 @@
                             <div class="person__header">
                                 <div class="person__header-img">
                                     <img src="images/profile/person.png" alt="person">
-                                    <a href="#" class="pdf-download mobile-hide active">Download PDF</a>
+                                    <span class="pdf-download mobile-hide">Download PDF</span>
                                 </div>
                                 <div class="person__header-info person__info">
                                     <p class="person__info-name profile-title">Richard Hendricks</p>
@@ -869,7 +885,8 @@
             </div>
             <div class="service__info-item">
                 <p>
-                    <span class="blue profile-btn active" data-path="profile">профиль</span> оформляем за вас — по ссылке или
+                    <span class="blue profile-btn active" data-path="profile">профиль</span> оформляем за вас — по
+                    ссылке или
                     файлу с вашим резюме
                 </p>
             </div>
@@ -914,7 +931,8 @@
             <div class="info__block">
                 <div class="info__block-item resume">
                     <img src="images/profile/profile__resume.png" class="info__block-img" alt="мониторить рынок">
-                    <p class="info__block-text">отправьте через бота ссылку на ваше резюме или файл — оформим профиль</p>
+                    <p class="info__block-text">отправьте через бота ссылку на ваше резюме или файл — оформим
+                        профиль</p>
                 </div>
                 <div class="info__block-item">
                     <img src="images/how-use/3.png" class="info__block-img" alt="мониторить рынок">
@@ -926,18 +944,19 @@
             <h3 class="info__title">(3) чтобы получить больше офферов от компаний:</h3>
             <div class="info__block">
                 <div class="info__block-item">
-                    <img src="images/how-use/4.png" class="info__block-img" alt="получить больше офферов от компаний">
-                    <p class="info__block-text"> включите режим активного поиска — порекомендуем ваш профиль работодателям сервиса</p>
+                    <img src="images/how-use/4.png" class="info__block-img more__offers-img" alt="получить больше офферов от компаний">
+                    <p class="info__block-text"> включите режим активного поиска — порекомендуем ваш профиль
+                        работодателям сервиса</p>
                 </div>
                 <div class="info__block-item has-more-item">
-                    <img src="images/how-use/5.png" class="info__block-img" alt="получить больше офферов от компаний">
-                    <p class="info__block-text">расскажите о том, что вам важно, — компании подберут предложения по вашим интересам</p>
+                    <img src="images/how-use/5.png" class="info__block-img more__offers-img" alt="получить больше офферов от компаний">
+                    <p class="info__block-text">расскажите о том, что вам важно, — компании подберут предложения по
+                        вашим интересам</p>
                 </div>
                 <div class="info__block-item">
-                    <img src="images/how-use/6.png" class="info__block-img" alt="получить больше офферов от компаний">
+                    <img src="images/how-use/6.png" class="info__block-img more__offers-img" alt="получить больше офферов от компаний">
                     <p class="info__block-text">получите поток подходящих офферов, созданных специально под вас</p>
                 </div>
-
             </div>
         </div>
 
@@ -1111,17 +1130,23 @@
                 <p class="privacy-policy desktop-hide"><a href="#">Пользовательское соглашение и Политика
                     конфиденциальности</a></p>
                 <div class="footer__info-social info__social">
-                    <a href="#"> <img src="images/footer-social/linkedin.svg" alt="linkedin" class="info__social-item active-social">
+                    <a href="#">
+                        <div class="info__social-item item-habr"></div>
                     </a>
-                    <a href="#"> <img src="images/footer-social/facebook.svg" alt="facebook" class="info__social-item">
+                    <a href="#">
+                        <div class="info__social-item item-linkedIn"></div>
                     </a>
-                    <a href="#"> <img src="images/footer-social/twitter.svg" alt="twitter" class="info__social-item">
+                    <a href="#">
+                        <div class="info__social-item item-facebook"></div>
                     </a>
-                    <a href="#"> <img src="images/footer-social/youtube.svg" alt="youtube" class="info__social-item">
+                    <a href="#">
+                        <div class="info__social-item item-twitter"></div>
                     </a>
-                    <a href="#"> <img src="images/footer-social/telegram.svg" alt="telegram" class="info__social-item">
+                    <a href="#">
+                        <div class="info__social-item item-youtube"></div>
                     </a>
-                    <a href="#"> <img src="images/footer-social/habr.svg" alt="habr" class="info__social-item">
+                    <a href="#">
+                        <div class="info__social-item item-telegram"></div>
                     </a>
                 </div>
                 <p class="copy desktop-hide">© getmatch, 2021</p>

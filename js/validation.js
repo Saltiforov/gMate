@@ -11,7 +11,6 @@ const fields = document.querySelectorAll('.form__input')
 name.addEventListener('input', (e) => {
     if (!e.currentTarget.value) {
         console.log('not valid')
-
     } else {
         console.log('valid')
     }
@@ -28,15 +27,13 @@ email.addEventListener('input', (e) => {
 
 })
 
-let mask = validationPhone(phone.value) ? validationPhone(phone.value) : '99-999999'
-console.log('mask', mask)
-let im = new Inputmask(mask)
-im.mask(phone)
+
 
 
 phone.addEventListener('input', (e) => {
-    console.log('validationPhone', validationPhone(phone.value))
-
+    let mask = validationPhone(phone.value).replace(/\s+/g, '-')
+    let im = new Inputmask(mask.replace(/0/g,'9'))
+    im.mask(phone)
 })
 
 form.addEventListener('input', (e) => {
