@@ -400,10 +400,6 @@ input {
     color: #FFFFFF;
 }
 
-.element-item {
-    /*z-index: -10;*/
-}
-
 .service {
     margin-bottom: 7.2rem;
 }
@@ -719,6 +715,44 @@ input {
     margin-top: 3.2rem;
     margin-bottom: 4.8rem;
 }
+
+
+.info__block-img {
+    max-width: 32rem;
+}
+
+.info__block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info__block-item {
+    max-width: 32rem;
+    margin-bottom: 5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.info__block-text {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+    letter-spacing: -0.2px;
+    margin-bottom: 2.8rem;
+}
+
+.resume:after {
+    content: '';
+    top: 18rem;
+    right: 15rem;
+    width: 16px;
+    height: 18px;
+    position: absolute;
+    background-image: url(../images/profile/profile-arrow.svg);
+}
+
 
 /*--------------------------PROFILE STYLES--------------------------*/
 

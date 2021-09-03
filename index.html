@@ -17,10 +17,22 @@
     <title>Document</title>
 </head>
 <body>
-<header>
+<header class="header">
     <div class="header__logo">
         <div class="container">
-            <img src="images/logo.svg" alt="getmatch-logo">
+            <div class="header__inner">
+                <a href="#">
+                    <img src="images/logo.svg" alt="getmatch-logo">
+                </a>
+                <div class="header__inner-buttons header__buttons mobile-hide">
+                    <a href="#" class="active">войти</a>
+                    <div class="header__buttons-telegram transition">
+                        <img src="images/telegram.svg" alt="telegram-link ">
+                        <a href="#">подключиться в телеграме</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </header>
@@ -38,7 +50,7 @@
                 <p class="chat__message-item desktop mobile-hide">да! отслеживайте зарплаты 💰 — их видно сразу</p>
 
             </div>
-            <div class="pickup-jobs">
+            <div class="pickup-jobs transition">
                 <img src="images/telegram.svg" alt="telegram-link">
                 <a href="#">подобрать вакансии </a>
             </div>
@@ -71,73 +83,73 @@
 
             <div class="filters">
                 <ul class="category__list button-group filters-button-group">
-                    <li class="category__list-item">
+                    <li class="category__list-item is-checked" data-filter="*">
                         <button class="button is-checked" data-filter="*">Все специальности</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".java-scala">
                         <button class="button" data-filter=".java-scala">Java/Scala</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".python">
                         <button class="button" data-filter=".python"> Python</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".c-hash">
                         <button class="button" data-filter=".c-hash">C#</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".ios">
                         <button class="button" data-filter=".ios">IOS</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".android">
                         <button class="button" data-filter=".android">Android</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".c-c-plus">
                         <button class="button" data-filter=".c-c-plus"> C/C++</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".goland">
                         <button class="button" data-filter=".goland">Goland</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".ruby">
                         <button class="button" data-filter=".ruby">Ruby</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".php">
                         <button class="button" data-filter=".php">PHP</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".frontend">
                         <button class="button" data-filter=".frontend">JS/Frontend</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".backend">
                         <button class="button" data-filter=".backend">JS/Backend</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".data-science">
                         <button class="button" data-filter=".data-science">Data Science</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".product-manager">
                         <button class="button" data-filter=".product-manager">Product Management</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".project-management">
                         <button class="button" data-filter=".project-management">Project Management</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".system-analyst">
                         <button class="button" data-filter=".system-analyst">System Analyst</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".product-analyst">
                         <button class="button" data-filter=".product-analyst">Product Analyst</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".design">
                         <button class="button" data-filter=".design">Design & UX</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".dev-ops">
                         <button class="button" data-filter=".dev-ops">DevOps</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".tech-management">
                         <button class="button" data-filter=".tech-management">Tech Management</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".tech-recruitment">
                         <button class="button" data-filter=".tech-recruitment">Tech Recruitment</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".qa-manual">
                         <button class="button" data-filter=".qa-manual">QA / Manual</button>
                     </li>
-                    <li class="category__list-item">
+                    <li class="category__list-item" data-filter=".qa-auto">
                         <button class="button" data-filter=".qa-auto"> QA / Auto</button>
                     </li>
                 </ul>
@@ -197,7 +209,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -215,7 +228,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -233,7 +247,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -251,7 +266,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -269,7 +285,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -287,7 +304,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -305,7 +323,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -323,7 +342,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -341,7 +361,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -359,7 +380,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -377,7 +399,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -395,7 +418,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -413,7 +437,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -431,7 +456,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -449,7 +475,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -467,7 +494,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -485,7 +513,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -503,7 +532,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -521,7 +551,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -539,7 +570,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -557,7 +589,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -575,7 +608,8 @@
                                 </div>
 
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -593,7 +627,8 @@
                                 <h3 class="offers__item-name">QA / Auto</h3>
                                 <p class="offers__item-company">в Avito</p>
                                 <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p></div>
+                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
+                                </div>
 
                             </div>
 
@@ -619,37 +654,44 @@
     <div class="modal" tabindex="-1" data-target="offers">
         <div class="modal-overlay">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/mail-ru.png" alt="company-logo" class="modal-title-logo">
+                <div class="modal-content offers__content">
+                        <div class="modal-header">
+                            <div class="modal-title">
+                                <img src="images/mail-ru.png" alt="company-logo" class="modal-title-logo">
+                            </div>
+                            <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
                         </div>
-                        <img src="images/close.svg" class="btn-close" alt="close-icon">
+                    <div class="modal-content-connecting">
+
+                        <div class="modal-body gradient overflow-45">
+                            <p class="modal__body-item modal__body-name">Java Developer <span>[Remote] @</span>Mail.ru</p>
+                            <p class="modal__body-item modal__body-price">220,000 — 250,000 ₽/мес на руки</p>
+                            <p class="modal__body-item modal__body-location">
+                                Локация<span>: Москва (м. Савёловская) или полная удаленка — на выбор.</span>
+                            </p>
+                            <p class="modal__body-item modal__body-stack">
+                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
+                            </p>
+                            <p class="modal__body-item modal__body-work">
+                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
+                            </p>
+                            <p class="modal__body-item modal__body-about desktop-hide">
+                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
+                            </p>
+                            <p class="modal__body-item modal__body-about mobile-hide">
+                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
+                            <div class="modal-footer-link link-button ">
+                                <img src="images/telegram.svg" alt="telegram-link">
+                                <a href="#" class="link">Добавить телеграм-бота</a></div>
+                        </div>
+
                     </div>
 
-                    <div class="modal-body gradient overflow-45">
-                        <p class="modal__body-item modal__body-name">Java Developer <span>[Remote] @</span>Mail.ru</p>
-                        <p class="modal__body-item modal__body-price">220,000 — 250,000 ₽/мес на руки</p>
-                        <p class="modal__body-item modal__body-location">
-                            Локация<span>: Москва (м. Савёловская) или полная удаленка — на выбор.</span>
-                        </p>
-                        <p class="modal__body-item modal__body-stack">
-                            Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                        </p>
-                        <p class="modal__body-item modal__body-work">
-                            Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                        </p>
-                        <p class="modal__body-item modal__body-about">
-                            О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                        </p>
-                    </div>
 
-                    <div class="modal-footer">
-                        <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                        <div class="modal-footer-link link-button ">
-                            <img src="images/telegram.svg" alt="telegram-link">
-                            <a href="#" class="link">Добавить телеграм-бота</a></div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -674,6 +716,7 @@
                             <div class="person__header">
                                 <div class="person__header-img">
                                     <img src="images/profile/person.png" alt="person">
+                                    <a href="#" class="pdf-download mobile-hide active">Download PDF</a>
                                 </div>
                                 <div class="person__header-info person__info">
                                     <p class="person__info-name profile-title">Richard Hendricks</p>
@@ -725,54 +768,64 @@
                                 <div class="experience__card-logo">
                                     <img src="images/profile/company.png" alt="company-icon">
                                 </div>
-                                <p class="experience__card-position"><span class="blue">Hendricks Venture Capital</span><br>Founding
-                                    Partner</p>
-                                <p class="experience__card-date">Jan 2020 to Present</p>
+                                <div class="experience__card-block">
+                                    <p class="experience__card-position"><span
+                                            class="blue">Hendricks Venture Capital</span><br>Founding
+                                        Partner</p>
+                                    <p class="experience__card-date">Jan 2020 to Present</p>
 
-                                <div class="experience__card-description">
-                                    <p class="experience__card-description-subtitle">
-                                        We fund companies trying to change the world
+                                    <div class="experience__card-description">
+                                        <p class="experience__card-description-subtitle">
+                                            We fund companies trying to change the world
 
-                                    </p>
+                                        </p>
+                                    </div>
                                 </div>
+
+
                             </div>
                             <div class="experience__card">
                                 <div class="experience__card-logo">
                                     <img src="images/profile/piper.png" alt="piper-company-icon">
                                 </div>
-                                <p class="experience__card-position"><span class="blue">Pied Piper</span> - Frontend
-                                    Engineer</p>
-                                <p class="experience__card-date">Apr 2014 to Dec 2019</p>
-                                <div class="experience__card-description">
-                                    <p class="experience__card-description-subtitle">
-                                        I am the CEO of PiedPiper and working on providing free and decentralized
-                                        internet.
-                                    </p>
-                                    <ul class="experience__list">
-                                        <li class="experience__list-item">Launched PiperNet, a decentralized internet
-                                            for the world
-                                        </li>
-                                        <li class="experience__list-item">Created PiedPiperCoin, a cryptocurrency to
-                                            support the open internet
-                                        </li>
-                                        <li class="experience__list-item">Discovered Middle-Out Compression which
-                                            provides the highest standard for lossless compression
-                                        </li>
-                                    </ul>
+                                <div class="experience__card-block">
+                                    <p class="experience__card-position"><span class="blue">Pied Piper</span> - Frontend
+                                        Engineer</p>
+                                    <p class="experience__card-date">Apr 2014 to Dec 2019</p>
+                                    <div class="experience__card-description">
+                                        <p class="experience__card-description-subtitle">
+                                            I am the CEO of PiedPiper and working on providing free and decentralized
+                                            internet.
+                                        </p>
+                                        <ul class="experience__list">
+                                            <li class="experience__list-item">Launched PiperNet, a decentralized
+                                                internet
+                                                for the world
+                                            </li>
+                                            <li class="experience__list-item">Created PiedPiperCoin, a cryptocurrency to
+                                                support the open internet
+                                            </li>
+                                            <li class="experience__list-item">Discovered Middle-Out Compression which
+                                                provides the highest standard for lossless compression
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-
-
                             </div>
+
                             <div class="experience__card">
                                 <div class="experience__card-logo">
                                     <img src="images/profile/company.png" alt="company-icon">
                                 </div>
-                                <p class="experience__card-position"><span class="blue">Aviato</span> - Developer</p>
-                                <p class="experience__card-date">Mar 2014 to Mar 2014</p>
-                                <div class="experience__card-description">
-                                    <p class="experience__card-description-subtitle">
-                                        I built the aggregation algorithm to track flights
+                                <div class="experience__card-block">
+                                    <p class="experience__card-position"><span class="blue">Aviato</span> - Developer
                                     </p>
+                                    <p class="experience__card-date">Mar 2014 to Mar 2014</p>
+                                    <div class="experience__card-description">
+                                        <p class="experience__card-description-subtitle">
+                                            I built the aggregation algorithm to track flights
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -784,11 +837,13 @@
                                 <div class="education__card-logo m-b-12">
                                     <img src="images/profile/education.png" alt="additional-education-icon">
                                 </div>
-                                <p class="education__card-title blue">Stanford</p>
-                                <p class="education__card-description">
-                                    Bachelor's of Science, Computer Science
-                                </p>
-                                <p class="education__card-date">Mar 2014 to Mar 2014</p>
+                                <div class="experience__card-block">
+                                    <p class="education__card-title blue">Stanford</p>
+                                    <p class="education__card-description">
+                                        Bachelor's of Science, Computer Science
+                                    </p>
+                                    <p class="education__card-date">Mar 2014 to Mar 2014</p>
+                                </div>
                             </div>
                         </div>
                         <button class="profile-confirm">Понятно</button>
@@ -814,7 +869,7 @@
             </div>
             <div class="service__info-item">
                 <p>
-                    <span class="blue profile-btn" data-path="profile">профиль</span> оформляем за вас — по ссылке или
+                    <span class="blue profile-btn active" data-path="profile">профиль</span> оформляем за вас — по ссылке или
                     файлу с вашим резюме
                 </p>
             </div>
@@ -841,23 +896,48 @@
 
         <div class="about__info info">
             <h3 class="info__title">(1) чтобы просто мониторить рынок:</h3>
-            <div class="info__img">
-                <img src="images/how-use/1-item.png" alt="мониторить рынок">
+            <div class="info__block">
+                <div class="info__block-item">
+                    <img src="images/how-use/1.png" class="info__block-img" alt="мониторить рынок">
+                    <p class="info__block-text"> выберите специализацию, зарплату и локацию в боте</p>
+                </div>
+                <div class="info__block-item">
+                    <img src="images/how-use/2.png" class="info__block-img" alt="мониторить рынок">
+                    <p class="info__block-text">получите отфильтрованные по вашим настройкам подборки вакансий</p>
+                </div>
             </div>
 
         </div>
 
         <div class="about__info info">
             <h3 class="info__title">(2) чтобы откликнуться на вакансию:</h3>
-            <div class="info__img">
-                <img src="images/how-use/2-item.png" alt="откликнуться на вакансию">
+            <div class="info__block">
+                <div class="info__block-item resume">
+                    <img src="images/profile/profile__resume.png" class="info__block-img" alt="мониторить рынок">
+                    <p class="info__block-text">отправьте через бота ссылку на ваше резюме или файл — оформим профиль</p>
+                </div>
+                <div class="info__block-item">
+                    <img src="images/how-use/3.png" class="info__block-img" alt="мониторить рынок">
+                </div>
             </div>
         </div>
 
         <div class="about__info info">
             <h3 class="info__title">(3) чтобы получить больше офферов от компаний:</h3>
-            <div class="info__img">
-                <img src="images/how-use/3-item.png" alt="получить больше офферов от компаний">
+            <div class="info__block">
+                <div class="info__block-item">
+                    <img src="images/how-use/4.png" class="info__block-img" alt="получить больше офферов от компаний">
+                    <p class="info__block-text"> включите режим активного поиска — порекомендуем ваш профиль работодателям сервиса</p>
+                </div>
+                <div class="info__block-item has-more-item">
+                    <img src="images/how-use/5.png" class="info__block-img" alt="получить больше офферов от компаний">
+                    <p class="info__block-text">расскажите о том, что вам важно, — компании подберут предложения по вашим интересам</p>
+                </div>
+                <div class="info__block-item">
+                    <img src="images/how-use/6.png" class="info__block-img" alt="получить больше офферов от компаний">
+                    <p class="info__block-text">получите поток подходящих офферов, созданных специально под вас</p>
+                </div>
+
             </div>
         </div>
 
@@ -994,7 +1074,7 @@
         <p class="employer__subtitle">оставьте заявку на звонок — расскажем, как открыть доступ к сервису</p>
         <form class="employer__form form">
             <input type="text" class="form__input form__name" placeholder="как вас зовут?">
-            <input type="text" class="form__input form__number" placeholder="ваш телефон">
+            <input type="tel" class="form__input form__number" placeholder="ваш телефон">
             <input type="text" class="form__input form__email" placeholder="рабочая почта">
             <span class="error-message">похоже на личный имэйл — напишите, пожалуйста, корпоративный</span>
             <div class="form__privacy">
@@ -1018,20 +1098,20 @@
         </div>
         <div class="footer__info">
             <div class="footer__info-links">
-                <p class="footer__info-item footer__info-email"><a href="#">hello@getmatch.ru</a>
+                <p class="footer__info-item footer__info-email"><a href="#" class="active-footer">hello@getmatch.ru</a>
                 </p>
-                <p class="footer__info-item"><a href="#">Работодателям</a>
+                <p class="footer__info-item"><a href="#" class="active-footer">Работодателям</a>
                 </p>
-                <p class="footer__info-item"><a href="#">Статьи о карьере</a>
+                <p class="footer__info-item"><a href="#" class="active-footer">Статьи о карьере</a>
                 </p>
-                <p class="footer__info-item"><a href="#">Вебинары</a>
+                <p class="footer__info-item"><a href="#" class="active-footer">Вебинары</a>
                 </p>
             </div>
             <div class="footer__info-links social-and-privacy">
                 <p class="privacy-policy desktop-hide"><a href="#">Пользовательское соглашение и Политика
                     конфиденциальности</a></p>
                 <div class="footer__info-social info__social">
-                    <a href="#"> <img src="images/footer-social/linkedin.svg" alt="linkedin" class="info__social-item">
+                    <a href="#"> <img src="images/footer-social/linkedin.svg" alt="linkedin" class="info__social-item active-social">
                     </a>
                     <a href="#"> <img src="images/footer-social/facebook.svg" alt="facebook" class="info__social-item">
                     </a>
@@ -1045,8 +1125,13 @@
                     </a>
                 </div>
                 <p class="copy desktop-hide">© getmatch, 2021</p>
-                <p class="privacy-policy mobile-hide "><a href="#">Пользовательское соглашение <span>и</span> Политика
-                    конфиденциальности</a> <span>© getmatch, 2021</span></p>
+                <p class="privacy-policy mobile-hide ">
+                    <a href="#" class="active-footer">Пользовательское соглашение</a>
+                    <span>и</span>
+                    <a href="#" class="active-footer">Политика
+                        конфиденциальности</a>
+                    <span>© getmatch, 2021</span>
+                </p>
 
             </div>
         </div>
@@ -1056,10 +1141,11 @@
 
 <script src="node_modules/flow-adaptive/dist/flow-adaptive.min.js"></script>
 <script src="node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
-
+<script src="node_modules/inputmask/dist/inputmask.js"></script>
 <script src="js/flow-adaptive.js"></script>
 <script src="js/isotope-layout.js"></script>
 <script type="module" src="js/validation.js"></script>
+<script type="module" src="js/utils.js"></script>
 <script src="plugins/tabs.js"></script>
 <script src="plugins/modal.js"></script>
 <script src="js/main.js"></script>

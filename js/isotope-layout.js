@@ -6,12 +6,12 @@ const iso = new Isotope('.grid', {
     layoutMode: 'fitRows'
 });
 const elements = document.querySelectorAll('.element-item');
-const renderList = (el,start,limit) => {
+const renderList = (el, start, limit) => {
     elements.forEach((el, index) => {
-        if (index < start + limit){
+        if (index < start + limit) {
             el.classList.remove('none')
             el.classList.add('flex')
-        }else {
+        } else {
             el.classList.remove('flex')
             el.classList.add('none')
         }
@@ -20,7 +20,7 @@ const renderList = (el,start,limit) => {
     // let buttonLink = document.querySelector('.more__offers-link')
     // buttonLink.innerHTML += `посмотреть ещё ${(Number(elements.length) - limit + start)} вакансий`
 }
-renderList(elements,0,5)
+renderList(elements, 0, 5)
 
 iso.layout()
 
@@ -36,34 +36,52 @@ filtersElem.addEventListener('click', function (event) {
     let filterValue = event.target.getAttribute('data-filter');
     const iso = Isotope.data('.grid')
 
-        if (filterValue === '*') {
-            renderList(elements,0,5)
+    if (filterValue === '*') {
+        renderList(elements, 0, 5)
+        iso.layout()
+    } else {
+        elements.forEach((el, index) => {
+            el.classList.remove('flex')
+            el.classList.remove('none')
             iso.layout()
-        } else {
-            elements.forEach((el, index) => {
-                el.classList.remove('flex')
-                el.classList.remove('none')
-                iso.layout()
-            });
+        });
 
-        }
+    }
     iso.arrange({filter: filterValue});
 });
 
 // change is-checked class on buttons
 const buttonGroups = document.querySelectorAll('.button-group');
-for (let i = 0, len = buttonGroups.length; i < len; i++) {
-    let buttonGroup = buttonGroups[i];
-    radioButtonGroup(buttonGroup);
-}
+const list = document.querySelectorAll('.category__list-item')
 
-function radioButtonGroup(buttonGroup) {
-    buttonGroup.addEventListener('click', function (event) {
+buttonGroups.forEach((el) => {
+    let pathList = []
+    list.forEach(btn => {
+        pathList.push(btn.getAttribute('data-filter'))
+    })
+    el.addEventListener('click', (event) => {
         // only work with buttons
         if (!matchesSelector(event.target, 'button')) {
             return;
         }
-        buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
-        event.target.classList.add('is-checked');
-    });
-}
+        let path = event.target.getAttribute('data-filter')
+
+        pathList.forEach(item => {
+            console.log('item !== path', item !== path)
+
+            if (item !== path){
+                let localArr = document.querySelectorAll(`[data-filter='${item}']`)
+                localArr.forEach(el => {
+                    el.classList.remove('is-checked')
+                })
+
+            } else {
+                let localArr = document.querySelectorAll(`[data-filter='${item}']`)
+                localArr.forEach(el => {
+                    event.target.classList.add('is-checked');
+                    el.classList.add('is-checked')
+                })
+            }
+        })
+    })
+})

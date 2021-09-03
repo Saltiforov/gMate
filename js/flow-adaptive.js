@@ -4,11 +4,6 @@ new FlowAdaptive({
     minWidth: 650,
     breakPoints: [
         {
-            minWidth: 650,
-            maxWidth: 900,
-            fontRatio: 768 / 10,
-        },
-        {
             maxWidth: 649,
             fontRatio: 414 / 10,
         },

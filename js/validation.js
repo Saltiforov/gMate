@@ -1,5 +1,5 @@
 import emails from "./free.js";
-
+import validationPhone from "./utils.js"
 const form = document.querySelector('.employer__form')
 const email = document.querySelector('.form__email')
 const phone = document.querySelector('.form__number')
@@ -28,15 +28,17 @@ email.addEventListener('input', (e) => {
 
 })
 
+let mask = validationPhone(phone.value) ? validationPhone(phone.value) : '99-999999'
+console.log('mask', mask)
+let im = new Inputmask(mask)
+im.mask(phone)
+
 
 phone.addEventListener('input', (e) => {
-    if (!e.currentTarget.value) {
-        console.log('not valid')
-    } else {
-        console.log('valid')
-    }
+    console.log('validationPhone', validationPhone(phone.value))
 
 })
+
 form.addEventListener('input', (e) => {
         if (name.value && checkbox.checked && phone.value && email.value) {
             document.querySelector('.form__btn').classList.remove('disabled')
