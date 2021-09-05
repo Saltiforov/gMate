@@ -80,7 +80,7 @@
 
     .start__chat {
         max-width: 770px;
-        margin: 10rem auto 0;
+        margin: 12rem auto 0;
         font-size: 2rem;
         line-height: 2.2rem;
     }
@@ -125,7 +125,7 @@
     }
 
     .desktop-hide {
-        display: none;
+        display: none !important;
     }
 
     .right-block {
@@ -167,7 +167,7 @@
         font-size: 2rem;
         line-height: 3.6rem;
         text-align: center;
-        margin: 0 auto 5.4rem;
+        margin: 0 auto 0;
     }
 
     .service__title {
@@ -374,6 +374,11 @@
         text-decoration: initial;
     }
 
+    .element-item {
+        cursor: pointer;
+    }
+
+
     .privacy-policy a {
         color: #30B4FF
 
@@ -503,7 +508,7 @@
 
     .button.is-checked span {
         color: #F2F2F2;
-
+        transition: all .3s ease-out;
     }
 
     .category__list-item > .is-checked {
@@ -536,7 +541,13 @@
 
     .category__list-item button.is-checked:hover {
         transition: all .3s ease-out;
-        background: #0066FF;
+        background: #F0EFF2;
+        color: black;
+    }
+
+    .category__list-item button.is-checked:hover span {
+        color: #666666;
+        transition: all .3s ease-out;
     }
 
     .category__list-item:nth-child(2n) {
@@ -737,12 +748,15 @@
     .employer__form.show-error .error-message {
         bottom: 24rem;
     }
-    .more__offers-img{
+
+    .more__offers-img {
         max-height: 18.8rem;
     }
+
     .tooltip {
         position: relative;
         display: inline-block;
+        margin-bottom: 5.4rem;
     }
 
     .tooltip .tooltiptext {
@@ -766,7 +780,8 @@
         box-shadow: 0px 1px 24px rgba(0, 0, 0, 0.12);
         border-radius: 4px;
     }
-    .tooltip .tooltiptext span{
+
+    .tooltip .tooltiptext span {
         padding-top: 2rem;
         display: block;
     }
