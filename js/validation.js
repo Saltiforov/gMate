@@ -31,9 +31,15 @@ email.addEventListener('input', (e) => {
 
 
 phone.addEventListener('input', (e) => {
-    let mask = validationPhone(phone.value).replace(/\s+/g, '-')
-    let im = new Inputmask(mask.replace(/0/g,'9'))
-    im.mask(phone)
+    let str = phone.value.substr(0,1)
+    if (str == 8 || phone.value[1] == 8){
+        phone.value = 7
+    }
+        let mask = validationPhone(phone.value).replace(/\s+/g, '-')
+        let im = new Inputmask(mask.replace(/0/g,'9'))
+
+        im.mask(phone)
+
 })
 
 form.addEventListener('input', (e) => {
