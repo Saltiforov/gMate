@@ -31,6 +31,9 @@ email.addEventListener('input', (e) => {
 
 
 phone.addEventListener('input', (e) => {
+    if (phone.value.length === 0) {
+        Inputmask.remove(phone)
+    }
     let str = phone.value.substr(0,1)
     if (str == 8 || phone.value[1] == 8){
         phone.value = 7
