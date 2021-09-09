@@ -9,6 +9,9 @@ const checkbox = document.querySelector('.form__checkbox')
 const fields = document.querySelectorAll('.form__input')
 
 name.addEventListener('input', (e) => {
+
+    name.value = name.value.replace(/[^a-zA-ZА-Яа-яЁё]/g,'');
+
     if (!e.currentTarget.value) {
         console.log('not valid')
     } else {
