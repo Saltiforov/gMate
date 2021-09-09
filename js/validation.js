@@ -31,6 +31,8 @@ email.addEventListener('input', (e) => {
 
 
 phone.addEventListener('input', (e) => {
+    phone.value = phone.value.replace(/[^\d.]/g, '');
+
     if (phone.value.length === 0) {
         Inputmask.remove(phone)
     }

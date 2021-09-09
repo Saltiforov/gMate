@@ -4,10 +4,10 @@ body, html, button {
     font-family: 'Montserrat', sans-serif;
 }
 
-/** {*/
-/*    -webkit-font-smoothing: antialiased;*/
-/*    -moz-osx-font-smoothing: grayscale*/
-/*}*/
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
 
 INPUT[type="text"] {
     color: black;
