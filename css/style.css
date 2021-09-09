@@ -689,6 +689,10 @@ input {
     margin-bottom: 4rem;
 }
 
+.footer__logo img{
+    max-width: 17.2rem
+}
+
 .footer__info-item {
     font-size: 1.7rem;
     line-height: 3.2rem;
