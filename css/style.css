@@ -4,6 +4,20 @@ body, html, button {
     font-family: 'Montserrat', sans-serif;
 }
 
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+INPUT[type="text"] {
+    color: black;
+}
+
+INPUT[type="tel"] {
+    color: black;
+}
+
+
 p, h2, h3, ul {
     margin: 0;
 }
@@ -173,6 +187,8 @@ input {
     line-height: 1.8rem;
     color: #7E7D8E;
     margin-left: 2.6rem;
+    letter-spacing: -0.2px;
+    font-weight: 400;
 }
 
 .offers {
@@ -270,7 +286,7 @@ input {
     box-shadow: 0 .2rem 2rem rgba(0, 0, 0, 0.07);
     border-radius: 12px;
     display: flex;
-    align-items: start;
+    align-items: center;
     padding: 2rem 1.6rem;
     width: 100%;
     box-sizing: border-box;
@@ -720,7 +736,7 @@ input {
     max-width: 32rem;
 }
 
-.info__block{
+.info__block {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -751,6 +767,7 @@ input {
     position: absolute;
     background-image: url(../images/profile/profile-arrow.svg);
 }
+
 .item-habr,
 .item-linkedIn,
 .item-facebook,
@@ -799,6 +816,7 @@ input {
     -webkit-mask: url('../images/footer-social/telegram.svg') no-repeat center;
 
 }
+
 .footer__info-social {
     display: flex;
 }

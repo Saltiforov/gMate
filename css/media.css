@@ -1,4 +1,9 @@
 @media (min-width: 651px) {
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale
+    }
+
     a {
         cursor: pointer;
         border: none;
@@ -6,6 +11,10 @@
 
     img {
         border: none;
+    }
+
+    INPUT[type="text"] {
+        color: black;
     }
 
     .container {
@@ -117,17 +126,23 @@
         margin: 3.7rem auto 2.4rem;
         max-width: 42.9rem;
         border-radius: 100px;
-        padding: 2.3rem 8rem;
+        padding: 2.3rem 8.3rem;
         outline: none;
     }
 
     .pickup-jobs span {
         color: white;
-        margin-left: 1.3rem;
+        font-size: 2rem;
+        line-height: 2.2rem;
+        letter-spacing: -0.2px;
+        font-weight: 500;
+        display: block;
+        margin: auto 0 auto 1.3rem;
     }
 
     .sub_info {
         text-align: center;
+        margin-left: 0;
     }
 
     .desktop-hide {
@@ -157,6 +172,26 @@
                 90deg
         );
         border-color: #E1FFC4 transparent transparent #E1FFC4;
+    }
+
+    .left-block {
+        position: relative;
+    }
+
+    .left-block:before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 4.5rem;
+        right: 0;
+        left: 0;
+        border: 1.5rem solid;
+        z-index: -1;
+        transform: rotate(
+                0
+        );
+        border-color: #F2F2F2 transparent transparent #F2F2F2;
     }
 
     .offers__title {
@@ -371,6 +406,10 @@
         margin-bottom: 6rem;
     }
 
+    .footer__logo img{
+        max-width: 17.2rem
+    }
+
     .footer__info-item {
         margin-bottom: 2rem;
     }
@@ -486,8 +525,9 @@
 
     .offers__item-img {
         max-height: 4.8rem;
-        max-width: 15rem;
-        margin-top: 0.5rem;
+        max-width: 12rem;
+        display: block;
+        margin: auto;
     }
 
     .overflow-block-subinfo {
