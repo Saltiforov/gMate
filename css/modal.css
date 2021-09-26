@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 10 version
+*/
+
 /*------------------MODAL STYLE---------------------------*/
 
 .modal {
@@ -11,6 +18,8 @@
     bottom: 0;
     left: 0;
     background: rgba(0, 0, 0, .5);
+    -webkit-transition: top 0.4s, ease-out 0.4s;
+    -o-transition: top 0.4s, ease-out 0.4s;
     transition: top 0.4s, ease-out 0.4s
 
 }
@@ -21,7 +30,10 @@
     margin: 2rem auto 2rem;
     border-radius: 1.2rem;
     padding: 2.8rem 1.6rem;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-transition: top 0.4s, ease-out 0.4s;
+    -o-transition: top 0.4s, ease-out 0.4s;
     transition: top 0.4s, ease-out 0.4s
     /*position: absolute;*/
     /*top: 50%;*/
@@ -34,6 +46,8 @@
 .modal.open .modal-dialog {
     opacity: 1;
     z-index: 2000;
+    -webkit-transition: top 0.4s, ease-out 0.4s;
+    -o-transition: top 0.4s, ease-out 0.4s;
     transition: top 0.4s, ease-out 0.4s
 }
 
@@ -43,7 +57,11 @@
 }
 
 .modal-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
@@ -54,8 +72,13 @@
 }
 
 .modal-close {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -78,6 +101,8 @@
     right: 0;
     left: 0;
     height: 10em;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(white));
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0), white 100%);
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white 100%);
     pointer-events: none;
 }
@@ -114,8 +139,14 @@
 }
 
 .modal-footer-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
