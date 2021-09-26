@@ -130,7 +130,7 @@ input {
 }
 
 .chat__message-item:nth-child(1) {
-    background: #E1FFC4;
+    background: #FFE953;
     border-radius: 1rem;
     width: 17rem;
     display: block;
@@ -151,7 +151,7 @@ input {
     border: 1.5rem solid;
     z-index: -1;
     transform: rotate(315deg);
-    border-color: #E1FFC4 transparent transparent #E1FFC4;
+    border-color: #FFE953 transparent transparent #FFE953;
 }
 
 .chat__message-item:nth-child(2) {
@@ -193,7 +193,7 @@ input {
 
 .offers {
     margin-top: 8rem;
-    margin-bottom: 8rem;
+    /*margin-bottom: 8rem;*/
     letter-spacing: -0.2px;
     position: relative;
 }
@@ -302,8 +302,7 @@ input {
 }
 
 .offers__item-img {
-    max-width: 7rem;
-    max-height: 2.8rem;
+    max-width: 100%;
 }
 
 .offers__item-name {
@@ -417,7 +416,13 @@ input {
 }
 
 .service {
-    margin-bottom: 7.2rem;
+    margin-bottom: 14rem;
+}
+
+.service {
+    background-color: #FFE953;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
 }
 
 .service__title {
@@ -428,11 +433,25 @@ input {
 }
 
 .service__info-item {
-    background: #E1FFC4;
+    background: #fff;
     border-radius: 12px;
     width: 100%;
     margin-bottom: 1.6rem;
     padding: 1.6rem;
+    position: relative;
+}
+
+.service__info-item:nth-last-child(1):before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -1.6rem;
+    right: -1.5rem;
+    border: 1.5rem solid;
+    z-index: 1;
+    transform: rotate(315deg);
+    border-color: #fff transparent transparent #fff;
 }
 
 .service__info-item p {
@@ -490,6 +509,10 @@ input {
     font-weight: 600;
     margin-bottom: .8rem;
     color: black;
+    transition: color .2s ease;
+}
+.question__header-title:hover {
+    color: #6C7377
 }
 
 .question__header {
@@ -536,8 +559,8 @@ input {
 }
 
 .employer {
-    background: #0066FF;
-    color: white;
+    background: #FFE953;
+    color: #0C2231;
 }
 
 .employer__title {
@@ -567,7 +590,7 @@ input {
 
 .form__input {
     background: #FAFAFA;
-    border: 1px solid #99CEFF;
+    border: 1px solid #E3E4E5;
     box-sizing: border-box;
     border-radius: 6px;
     font-weight: 500;
@@ -577,7 +600,7 @@ input {
     color: #A3A3A3;
     padding: 1.2rem 1.6rem;
     outline: none;
-    margin-bottom: 1.6em;
+    margin-bottom: 2rem;
 }
 
 .form__input:last-child {
@@ -605,7 +628,7 @@ input {
 }
 
 .form__privacy-text a {
-    color: #B9FF75;
+    color: #205AED;
 }
 
 .form__btn {
@@ -617,9 +640,15 @@ input {
     background: transparent;
     outline: none;
     border-radius: 6px;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid #0C2231;
+    color: #0C2231;
     padding: 1.7rem 0;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.form__btn:hover {
+    background: #0C2231;
+    color: #fff;
 }
 
 .custom-checkbox > input {
@@ -679,7 +708,7 @@ input {
 .footer {
     color: white;
     padding: 4.8rem 0;
-    background-color: black;
+    background-color: #0C2231;
     background-image: url("../images/footer-bg.png");
     background-repeat: no-repeat;
     background-position: 85% 15%;
@@ -1203,7 +1232,27 @@ education__card-description {
 
 }
 
+.employer__formWrap {
+    max-width: 57rem;
+}
+
 .footer a {
     color: white;
 }
 
+
+.offers__item-name, .offers__item-company {
+    display: inline;
+}
+
+.show-offer-enter-active, .show-offer-leave-active {
+    transition: transform .3s ease, opacity 0.3s ease;
+}
+.show-offer-enter, .show-offer-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+/*.show-offer-leave-to {*/
+/*    position: absolute;*/
+/*}*/

@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const cards = document.querySelectorAll('.element-item')
     const profile = document.querySelectorAll('.profile-btn')
-    const modals = document.querySelectorAll('.modal')
-    const modalOverlay = document.querySelectorAll('.modal-overlay')
+    const modals = document.querySelectorAll('.modal:not(.no-js)')
+    const modalOverlay = document.querySelectorAll('.modal:not(.no-js) .modal-overlay')
     const closeBtn = document.querySelectorAll('.btn-close')
     const confirmBtn = document.querySelector('.profile-confirm')
 

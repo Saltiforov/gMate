@@ -20,11 +20,11 @@
                 <a href="#">
                     <img src="images/logo.svg" alt="getmatch-logo">
                 </a>
-                <div class="header__inner-buttons header__buttons mobile-hide">
+                <div class="header__inner-buttons header__buttons">
                     <a href="#" class="active">войти</a>
                     <div class="header__buttons-telegram transition">
                         <img src="images/telegram.svg" alt="telegram-link ">
-                        <a href="#">подключиться в телеграме</a>
+                        <a href="#">подобрать вакансии</a>
                     </div>
                 </div>
 
@@ -90,1187 +90,117 @@
             </div>
         </div>
 
-        <div class="offers__container">
-
+        <div class="offers__container" id="offers-app">
             <div class="filters">
                 <ul class="category__list button-group filters-button-group">
-                    <li class="category__list-item  is-checked" data-filter="*">
-                        <button class="button filter-item is-checked" data-filter="*">Все специальности <span>121</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".java-scala">
-                        <button class="button filter-item" data-filter=".java-scala">Java/Scala <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".python">
-                        <button class="button filter-item" data-filter=".python"> Python <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".c-hash">
-                        <button class="button filter-item" data-filter=".c-hash">C# <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".ios">
-                        <button class="button filter-item" data-filter=".ios">IOS <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".android">
-                        <button class="button filter-item" data-filter=".android">Android <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".c-c-plus">
-                        <button class="button filter-item" data-filter=".c-c-plus"> C/C++ <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".goland">
-                        <button class="button filter-item" data-filter=".goland">Goland <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".ruby">
-                        <button class="button filter-item" data-filter=".ruby">Ruby <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".php">
-                        <button class="button filter-item" data-filter=".php">PHP <span>23</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".frontend">
-                        <button class="button filter-item" data-filter=".frontend">JS/Frontend <span>22</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".backend">
-                        <button class="button filter-item" data-filter=".backend">JS/Backend <span>11</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".data-science">
-                        <button class="button filter-item" data-filter=".data-science">Data Science <span>23</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".product-manager">
-                        <button class="button filter-item" data-filter=".product-manager">Product Management <span>23</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".project-management">
-                        <button class="button filter-item" data-filter=".project-management">Project Management <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".system-analyst">
-                        <button class="button filter-item" data-filter=".system-analyst">System Analyst <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".product-analyst">
-                        <button class="button filter-item" data-filter=".product-analyst">Product Analyst <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".design">
-                        <button class="button filter-item" data-filter=".design">Design & UX <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".dev-ops">
-                        <button class="button filter-item" data-filter=".dev-ops">DevOps <span>5</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".tech-management">
-                        <button class="button filter-item" data-filter=".tech-management">Tech Management <span>1</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".tech-recruitment">
-                        <button class="button filter-item" data-filter=".tech-recruitment">Tech Recruitment <span>2</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".qa-manual">
-                        <button class="button filter-item" data-filter=".qa-manual">QA / Manual <span>24</span></button>
-                    </li>
-                    <li class="category__list-item " data-filter=".qa-auto">
-                        <button class="button filter-item" data-filter=".qa-auto"> QA / Auto <span>12</span></button>
+                    <li class="category__list-item" :class="[selected === item.value && 'is-checked']" v-for="item in specializations" :key="item.value">
+                        <button class="button filter-item" :class="[selected === item.value && 'is-checked']" @click="select(item.value)">{{item.name}} <span>{{item.count}}</span></button>
                     </li>
                 </ul>
-
-                <div class="grid offers__list">
-                    <div class="element-item  offers__list-item offers__item  java-scala " data-path="wrike">
-                        <img src="images/wrike.svg" class="offers__item-img desktop-hide" alt="wrike">
-                        <img src="images/wrike-48.png" class="offers__item-img mobile-hide" alt="wrike">
+                <transition-group tag="ul" name="show-offer" class="grid offers__list">
+                    <div
+                        v-for="item in offers"
+                        :key="item.id"
+                        class="element-item  offers__list-item offers__item "
+                        @click="selectOffer(item)"
+                    >
+                        <div class="offers__item-img-wrap">
+                            <img :src="item.company.logotype" class="offers__item-img" :alt="item.company.name">
+                        </div>
                         <div class="offers__item-description">
                             <div class="overflow-block">
                                 <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Java Разработчик</h3>
-                                    <p class="offers__item-company">в Wrike</p>
+                                    <h3 class="offers__item-name">{{item.position}}</h3>
+                                    <p class="offers__item-company">в {{item.company.name}}</p>
                                 </div>
 
-                                <p class="offers__item-city desktop-hide">Санкт-Петербург, Remote</p>
+                                <p class="offers__item-city desktop-hide">{{item.locations.join(', ')}}</p>
                                 <div class="overflow-block-subinfo">
-                                    <p class="offers__item-city mobile-hide">Remote</p>
-                                    <p class="offers__item-city mobile-hide">Санкт-Петербург</p>
-                                    <p class="offers__item-city mobile-hide">Санкт-Петербург</p>
-                                    <p class="offers__item-city mobile-hide">Санкт-Петербург</p>
+                                    <p v-for="(loc,index) in item.locations" :key="index" class="offers__item-city mobile-hide">{{loc}}</p>
                                 </div>
 
                             </div>
 
-                            <p class="offers__item-price">≈&nbsp;220 000 – 280 000 ₽</p>
+                            <p class="offers__item-price">
+                                <template v-if="!item.salary_to">
+                                    от&nbsp;{{numberWithSpaces(item.salary_from)}} {{item.salary_currency}}
+                                </template>
+                                <template v-else>
+                                    ≈&nbsp;{{numberWithSpaces(item.salary_from)}} – {{numberWithSpaces(item.salary_to)}} {{item.salary_currency}}
+                                </template>
+                            </p>
                         </div>
                     </div>
-
-                    <div class="element-item  offers__list-item offers__item java-scala" data-path="yandex">
-                        <img src="images/yandex.png" class="offers__item-img" alt="yandex">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик Java</h3>
-                                    <p class="offers__item-company">в Яндекс</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-
-                            </div>
-
-                            <p class="offers__item-price">от 180 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item" data-path="offers">
-                        <img src="images/mail-ru.png" class="offers__item-img" alt="mail-ru">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик Java</h3>
-                                    <p class="offers__item-company">в Mail.ru</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">≈&nbsp;150 000 – 180 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item java-scala" data-path="java-avito">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик Java</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 150 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item python" data-path="python">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик Python</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 150 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item c-hash" data-path="c-hash">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик C#</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 150 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item ios" data-path="ios-dev">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик IOS</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 150 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item android" data-path="android-dev">
-                        <img src="images/avito.png" class="offers__item-img" alt=company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик Android</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 180 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item c-c-plus" data-path="c-c-plus">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик C/C++</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 180 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item goland" data-path="goland">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик Goland</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 180 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item ruby" data-path="ruby">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик Ruby</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 280 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item php" data-path="php-dev">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик PHP</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 80 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item frontend" data-path="front-end">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик JS/Frontend</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 180 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item backend" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Разработчик JS/Backend</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 240 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item data-science" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Data Science</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 220 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item product-manager" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Product Management</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 220 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item project-management" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Project Management</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 220 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item system-analyst" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">System Analyst</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 220 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item product-analyst" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Product Analyst</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 220 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item design" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Design & UX</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 280 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item dev-ops" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">DevOps</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 320 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item tech-management" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Tech Management</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 320 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item tech-recruitment" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">Tech Recruitment</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 320 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item qa-manual" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-                                    <h3 class="offers__item-name">QA / Manual</h3>
-                                    <p class="offers__item-company">в Avito</p>
-                                </div>
-
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 320 000 ₽</p>
-                        </div>
-                    </div>
-
-                    <div class="element-item  offers__list-item offers__item qa-auto" data-path="offers">
-                        <img src="images/avito.png" class="offers__item-img" alt="company-logo">
-                        <div class="offers__item-description">
-                            <div class="overflow-block">
-                                <div class="overflow-block-info">
-
-                                </div>
-                                <h3 class="offers__item-name">QA / Auto</h3>
-                                <p class="offers__item-company">в Avito</p>
-                                <p class="offers__item-city desktop-hide">Москва, Remote</p>
-                                <div class="overflow-block-subinfo"><p class="offers__item-city mobile-hide">Москва</p>
-                                </div>
-
-                            </div>
-
-                            <p class="offers__item-price">от 320 000 ₽</p>
-                        </div>
-                    </div>
-
-                </div>
+                </transition-group>
             </div>
-
-
             <a href="#" class="more__offers link-button">
                 <img src="images/telegram.svg" alt="telegram-link">
-                <p  class="more__offers-link link">посмотреть ещё 16
+                <p  class="more__offers-link link">посмотреть ещё {{moreOffers}}
                     вакансий</p>
             </a>
 
             <div class="liner"></div>
+
+            <div class="modal no-js modal-offer" :class="[opened && 'open']" tabindex="-1">
+                <div class="modal-overlay" @click.self="close">
+                    <div class="modal-dialog" v-if="selectedOffer">
+                        <div class="modal-content offers__content">
+                            <div class="modal-header">
+                                <div class="modal-title">
+                                    <img :src="selectedOffer.company.logotype" :alt="selectedOffer.company.name" class="modal-title-logo">
+                                </div>
+                                <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon" @click="close">
+                            </div>
+                            <div class="modal-content-connecting">
+
+                                <div class="modal-body gradient overflow-45">
+                                    <p class="modal__body-item modal__body-name">{{selectedOffer.position}} <span>[{{selectedOffer.locations[0]}}] @</span>{{selectedOffer.company.name}}
+                                    </p>
+                                    <p class="modal__body-item modal__body-price">
+                                        <template v-if="!selectedOffer.salary_to">
+                                            от&nbsp;{{numberWithSpaces(selectedOffer.salary_from)}} {{selectedOffer.salary_currency}}/мес на руки
+                                        </template>
+                                        <template v-else>
+                                            {{numberWithSpaces(selectedOffer.salary_from)}} — {{numberWithSpaces(selectedOffer.salary_to)}} {{selectedOffer.salary_currency}}/мес на руки
+                                        </template>
+                                    </p>
+                                    <p class="modal__body-item modal__body-location" v-html="selectedOffer.locations_html">
+                                    </p>
+                                    <p class="modal__body-item modal__body-stack" v-html="selectedOffer.description_html">
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
+                                    <a class="modal-footer-link link-button " target="_blank" :href="'http://your.gms.tech/v/'+selectedOffer.id+'?s=landing_source'">
+                                        <img src="images/telegram.svg" alt="telegram-link">
+                                        <span class="link">Добавить телеграм-бота</span></a>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 </section>
 <div class="container">
-    <div class="modal" tabindex="-1" data-target="offers">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/mail-ru.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Java Developer <span>[Remote] @</span>Mail.ru
-                            </p>
-                            <p class="modal__body-item modal__body-price">220,000 — 250,000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва (м. Савёловская) или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="wrike">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/wrike.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Java Developer <span>[Remote]</span> в Wrike
-                            </p>
-                            <p class="modal__body-item modal__body-price">220,000 — 280,000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Санкт-Петербург или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="yandex">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/yandex.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Java Developer <span>[Remote]</span> в Yandex
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 180 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="python">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/avito.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Разработчик Python<span>[Remote]</span> в Avito
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 150 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="c-hash">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/avito.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Разработчик C#<span></span> в Avito
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 150 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="ios-dev">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/avito.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Разработчик IOS<span></span> в Avito
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 150 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="android-dev">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/avito.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Разработчик Android <span>[Remote]</span> в Avito
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 150 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="c-c-plus">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/avito.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Разработчик C/C++ <span>[Remote]</span> в Avito
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 180 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="goland">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/avito.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Разработчик Goland <span>[Remote]</span> в Avito
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 180 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="ruby">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/avito.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Разработчик Ruby <span>[Remote]</span> в Avito
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 280 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="php-dev">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/avito.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Разработчик PHP <span>[Remote]</span> в Avito
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 80 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="front-end">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/avito.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Разработчик JS/Frontend <span>[Remote]</span> в Avito
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 180 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" data-target="java-avito">
-        <div class="modal-overlay">
-            <div class="modal-dialog">
-                <div class="modal-content offers__content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            <img src="images/avito.png" alt="company-logo" class="modal-title-logo">
-                        </div>
-                        <img src="images/close.svg" class="btn-close offers__content-close" alt="close-icon">
-                    </div>
-                    <div class="modal-content-connecting">
-
-                        <div class="modal-body gradient overflow-45">
-                            <p class="modal__body-item modal__body-name">Разработчик Java <span>[Remote]</span> в Avito
-                            </p>
-                            <p class="modal__body-item modal__body-price">от 150 000 ₽/мес на руки</p>
-                            <p class="modal__body-item modal__body-location">
-                                Локация<span>: Москва или полная удаленка — на выбор.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-stack">
-                                Стек<span>: Java, JavaScript, Handlebars, CSS, MySQL, SOLR.</span>
-                            </p>
-                            <p class="modal__body-item modal__body-work">
-                                Что делать<span>: Разрабатывать финансово-аналитическую платформу, публикующую цены на сырьевые товары (металлы, древесина, сельскохозяйственная продукция).</span>
-                            </p>
-                            <p class="modal__body-item modal__body-about desktop-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — </span>
-                            </p>
-                            <p class="modal__body-item modal__body-about mobile-hide">
-                                О компании<span>: Arcadia — одна из ведущих российских компаний в сфере заказной разработки ПО. Компания предоставляет решения для поддержки бизнеса — от комплексной разработки приложений и DevOps-услуг до аналитики больших данных. Центральный офис — в Санкт-Петербурге, офисы продаж — в Великобритании и США.</span>
-                            </p>
-                        </div>
-                        <div class="modal-footer">
-                            <p class="modal-footer-text">Ещё 16 похожих вакансий — в чат-боте</p>
-                            <a class="modal-footer-link link-button " href="#">
-                                <img src="images/telegram.svg" alt="telegram-link">
-                                <span class="link">Добавить телеграм-бота</span></a>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="modal" tabindex="-1" data-target="profile">
         <div class="modal-overlay">
             <div class="modal-dialog profile">
                 <div class="modal-content ">
+                    <div class="modal-close">
+                        <img src="images/close.svg" class="btn-close" alt="close-icon">
+                    </div>
                     <div class="modal-header">
                         <div class="modal-title">
                             <h3 class="profile__title title">Так выглядит <br> профиль в getmatch</h3>
                             <p class="profile__subtitle">Мы создаём его сами — на основе вашего обычного резюме с hh.ru,
                                 Линкедина, ХабрКарьеры или другого сервиса.</p>
                         </div>
-                        <img src="images/close.svg" class="btn-close" alt="close-icon">
                     </div>
                     <div class="modal-body">
                         <div class="profile__resume">
@@ -1637,23 +567,25 @@
 
 <section class="employer">
     <div class="container employer-container">
-        <h2 class="employer__title">вы работодатель?</h2>
-        <p class="employer__subtitle">оставьте заявку на звонок — расскажем, как открыть доступ к сервису</p>
-        <form class="employer__form form">
-            <input type="text" class="form__input form__name" placeholder="как вас зовут?">
-            <input type="tel" class="form__input form__number" placeholder="ваш телефон">
-            <input type="text" class="form__input form__email" placeholder="рабочая почта">
-            <span class="error-message">похоже на личный имэйл — напишите, пожалуйста, корпоративный</span>
-            <div class="form__privacy">
-                <label class="custom-checkbox">
-                    <input type="checkbox" checked class="form__input form__checkbox" value="value">
-                    <span class="form__privacy-text">Принимаю &nbsp;<a
-                            href="#"> условия пользования сервисом</a> </span>
-                </label>
-            </div>
+        <div class="employer__formWrap">
+            <h2 class="employer__title">вы работодатель?</h2>
+            <p class="employer__subtitle">оставьте заявку на звонок — расскажем, как открыть доступ к сервису</p>
+            <form class="employer__form form">
+                <input type="text" class="form__input form__name" placeholder="как вас зовут?">
+                <input type="tel" class="form__input form__number" placeholder="ваш телефон">
+                <input type="text" class="form__input form__email" placeholder="рабочая почта">
+                <span class="error-message">похоже на личный имэйл — напишите, пожалуйста, корпоративный</span>
+                <div class="form__privacy">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" checked class="form__input form__checkbox" value="value">
+                        <span class="form__privacy-text">Принимаю &nbsp;<a
+                                href="#"> условия пользования сервисом</a> </span>
+                    </label>
+                </div>
 
-            <button type="submit" class="form__btn disabled">оставить заявку</button>
-        </form>
+                <button type="submit" class="form__btn disabled">оставить заявку</button>
+            </form>
+        </div>
     </div>
 </section>
 <footer class="footer">
@@ -1712,15 +644,18 @@
 </footer>
 
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 <script src="node_modules/flow-adaptive/dist/flow-adaptive.min.js"></script>
-<script src="node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
+<!--<script src="node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>-->
 <script src="node_modules/inputmask/dist/inputmask.js"></script>
 <script src="js/flow-adaptive.js"></script>
-<script src="js/isotope-layout.js"></script>
+<!--<script src="js/isotope-layout.js"></script>-->
 <script type="module" src="js/validation.js"></script>
 <script type="module" src="js/utils.js"></script>
 <script src="plugins/tabs.js"></script>
 <script src="plugins/modal.js"></script>
+<script src="js/offers.js"></script>
 <script src="js/main.js"></script>
 
 </body>

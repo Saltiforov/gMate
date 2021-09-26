@@ -35,3 +35,5 @@ document.querySelectorAll('.tabs-triggers__item').forEach((item) => {
         }
     })
 })
+
+document.querySelectorAll('.tabs-triggers__item')[0].click()

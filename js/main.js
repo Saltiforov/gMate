@@ -1,6 +1,6 @@
-const tooltip = document.querySelector('.tooltip-item')
+var tooltip = document.querySelector('.tooltip-item')
 
-const tooltipOverlay = document.querySelector('.tooltip-item-overlay')
+var tooltipOverlay = document.querySelector('.tooltip-item-overlay')
 
 document.querySelectorAll('.tooltip').forEach((el) => {
         el.addEventListener('click', (e) => {
@@ -21,3 +21,16 @@ document.querySelectorAll('.tooltip').forEach((el) => {
         })
 
 })
+
+var buttons = document.querySelector('.header__buttons')
+
+function checkScroll() {
+  if (window.scrollY > 0) {
+    buttons.classList.add('-active')
+  } else {
+    buttons.classList.remove('-active')
+  }
+}
+
+window.addEventListener('scroll', checkScroll)
+checkScroll()

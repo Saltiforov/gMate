@@ -53,9 +53,17 @@
     cursor: pointer;
 }
 
+.modal-close {
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
 .modal-title-logo {
-    width: 14.9em;
-    height: 6rem;
+    max-width: 100%;
+    /*max-height: 6rem;*/
 }
 
 .modal-body {
@@ -83,10 +91,18 @@
 }
 
 .modal-body .modal__body-item {
-    font-weight: bold;
     font-size: 1.5rem;
     line-height: 2.4rem;
     padding-bottom: 1rem;
+}
+
+.modal__body-name, .modal__body-price {
+    font-weight: bold;
+}
+
+
+.modal__body-stack {
+    white-space: pre-line;
 }
 
 .modal-body .modal__body-item span {
